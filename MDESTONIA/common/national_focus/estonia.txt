@@ -82,7 +82,7 @@ focus_tree = {
 		id = EST_fighting_unemployment
 		icon = autonomy
 
-		cost = 11
+		cost = 12
 
 		x = -3
 		y = 1
@@ -294,6 +294,33 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = EST_visit_sweden
+		icon = align_to_sweden
+
+		cost = 10
+
+		x = 2
+		y = 0
+
+		prerequisite = { focus = EST_e_estonia }
+		relative_position_id = EST_e_estonia
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			add_stability = 0.05
+			EST = { add_opinion_modifier = { target = SWE modifier = minor_improve_trade }
+			}
+			SWE = { add_opinion_modifier = { target = EST modifier = minor_improve_trade }
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
 	
 	
 	focus = {
@@ -467,14 +494,14 @@ focus_tree = {
 
 		prerequisite = { focus = EST_study_russian_tactics_v2 }
 		prerequisite = { focus = EST_integrate_russians }
-		prerequisite = { focus = EST_e_estonia }
+		prerequisite = { focus = EST_visit_sweden }
 		mutually_exclusive = { focus = EST_dreams_of_union }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		relative_position_id = EST_integrate_russians
 
 		completion_reward = {
 			country_event = { id = nordic.change_flag }
-			set_temp_variable = { treasury_change = 60 }
+			set_temp_variable = { treasury_change = 50 }
 			modify_treasury_effect = yes
 			add_stability = 0.15
 		}
@@ -537,7 +564,7 @@ focus_tree = {
 				}
 				LAT = { country_event = baltic_un.1 }
 			}
-			set_temp_variable = { treasury_change = 30 }
+			set_temp_variable = { treasury_change = 25 }
 			modify_treasury_effect = yes
 		}
 
@@ -574,7 +601,7 @@ focus_tree = {
 		completion_reward = {
 			country_event = { id = eventEstonia.nordic_faction }
 			
-			set_temp_variable = { treasury_change = 20 }
+			set_temp_variable = { treasury_change = 15 }
 			modify_treasury_effect = yes
 		}
 
@@ -602,7 +629,7 @@ focus_tree = {
 		relative_position_id = EST_viribus_unitis
 
 		completion_reward = {
-			set_temp_variable = { treasury_change = -50 }
+			set_temp_variable = { treasury_change = -60 }
 			modify_treasury_effect = yes
 		}
 
@@ -619,7 +646,7 @@ focus_tree = {
 		id = EST_new_era
 		icon = BRA_commodities_boom
 
-		cost = 25
+		cost = 30
 
 		x = 0
 		y = 1
@@ -706,12 +733,36 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = NOR_food_safety_regulations
+		icon = adopt_the_peoples_constitution
+
+		x = 4
+		y = 1
+		relative_position_id = EST_investment
+		cost = 10
+		search_filters = { FOCUS_FILTER_ECONOMY }
+		prerequisite = { focus = EST_investment }
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus NOR_food_safety_regulations"
+			swap_ideas = {
+				remove_idea = NOR_ministry_of_agri_and_food
+				add_idea = NOR_ministry_of_agri_and_food2
+			}
+			set_temp_variable = { treasury_change = -1.5 }
+			modify_treasury_effect = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
 		id = EST_fortify_russian_border
 		icon = coastal_fort
 
 		cost = 10
 
-		x = -1
+		x = 0
 		y = 1
 
 		prerequisite = { focus = EST_new_era }
@@ -748,15 +799,57 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = EST_SOF
+		icon = recon
+
+		cost = 10
+
+		x = -2
+		y = 1
+
+		prerequisite = { focus = EST_new_era }
+		relative_position_id = EST_new_era
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			log = "[GetDateText]: [Root.GetName]: Focus DEN_SOF"
+			army_experience = 30
+			navy_experience = 10
+			air_experience = 10
+			add_tech_bonus = {
+				name = DEN_SOF
+				bonus = 0.25
+				technology = body_armor_2010
+				uses = 1
+			}
+			add_tech_bonus = {
+				name = DEN_SOF
+				bonus = 0.25
+				Category = CAT_special_forces
+				uses = 2
+			}
+			set_temp_variable = { treasury_change = gdp_per_capita }
+				multiply_temp_variable = { treasury_change = -0.1 }
+				modify_treasury_effect = yes
+			}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	focus = {
 		id = EST_focus_industrial2
 		icon = production
 
 		cost = 10
 
-		x = 1
+		x = 2
 		y = 1
 
 		prerequisite = { focus = EST_new_era }
+		prerequisite = { focus = NOR_food_safety_regulations }
 		relative_position_id = EST_new_era
 
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
@@ -782,11 +875,12 @@ focus_tree = {
 
 		cost = 10
 
-		x = 1
+		x = 0
 		y = 1
 		
 		prerequisite = { focus = EST_fortify_russian_border }
 		prerequisite = { focus = EST_focus_industrial2 }
+		prerequisite = { focus = EST_SOF }
 		relative_position_id = EST_fortify_russian_border
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
@@ -1864,7 +1958,7 @@ focus_tree = {
 		id = EST_european_federation
 		icon = nordicUnion
 
-		cost = 5
+		cost = 20
 
 		x = -1
 		y = 7
