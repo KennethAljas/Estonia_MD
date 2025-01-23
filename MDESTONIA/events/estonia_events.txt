@@ -1,0 +1,35 @@
+add_namespace = eventEstonia
+
+country_event = {
+    id = eventEstonia.nordic_faction
+    title = "Nordic Faction"
+    desc = "We should join the Nordic Faction."
+    picture = GFX_evt_generic_signing_document
+
+    is_triggered_only = yes
+
+    option = {
+        name = "We are united."
+        SWE = {
+            add_to_faction = ROOT
+        }
+    }
+}
+
+add_namespace = nordic
+country_event = {
+    id = nordic.change_flag
+    title = "Estonia can into Nordic"
+    desc = "Estonia has changed their flag and are striving to join the Nordics."
+    picture = GFX_evt_generic_signing_document
+
+    is_triggered_only = yes
+
+    option = {
+        name = "Embrace the new identity"
+        
+        ROOT = {
+            set_cosmetic_tag = EST_nordic
+        }
+    }
+}

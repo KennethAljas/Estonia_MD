@@ -1,0 +1,52 @@
+state = {
+	id = 105
+	name = "STATE_105"
+	resources = {
+		aluminium = 2
+		tungsten = 4
+		steel = 6
+		chromium = 2
+		oil = 9
+	}
+
+	history = {
+		owner = EST
+		victory_points = {
+			3152 5
+		}
+		victory_points = {
+			4640 3
+		}
+		buildings = {
+			infrastructure = 4
+			internet_station = 2
+			industrial_complex = 3
+			offices = 1
+			arms_factory = 2
+			air_base = 4
+			3152 = {
+				naval_base = 3
+			}
+			4640 = {
+				naval_base = 1
+			}
+		}
+		add_core_of = EST
+		2017.1.1 = {
+			buildings = {
+				internet_station = 4
+				industrial_complex = 1
+				offices = 1
+				air_base = 3
+			}
+			add_manpower = -135623
+		}
+	}
+
+	provinces = {
+		3152 4640 11426 14526
+	}
+	manpower = 1539710
+	buildings_max_level_factor = 1.000
+	state_category = state_03
+}
