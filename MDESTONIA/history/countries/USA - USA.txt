@@ -14,7 +14,6 @@
 			set_naval_oob = "USA_2000_naval_legacy"
 		}
 	}
-
 	if = {
 		limit = { has_dlc = "By Blood Alone" }
 		set_air_oob = "USA_2000_bba"
@@ -22,6 +21,7 @@
 			set_air_oob = "USA_2000_nonbba"
 		}
 	}
+
 	# If a country has specific cosmetic tags or configuration
 	set_cosmetic_tag = USA
 	set_country_flag = dynamic_flag
@@ -81,13 +81,15 @@
 		political_establishment
 		congress_authority
 		g7_member
-		nuclear_power
 		american_militarism
 		us_war_on_drugs
 		us_mass_media_problems
 		heavy_additional_consumption_spirit
 		petro_dollar
 		heavily_regulated_immigration
+		nuclear_power_off
+		full_first_use
+		landmark_ICBMsilominot_hidden
 	}
 	if = { limit = { is_ai = yes }
 		add_ideas = USA_additional_pp_ai
@@ -128,32 +130,38 @@
 	add_dynamic_modifier = {
 		modifier = us_economic_policies
 	}
-	set_variable = { econ_political_power_gain = -0.03 }
-	set_variable = { econ_drift_defense = 0.50 }
 	set_variable = { econ_consumer_goods = 0.02 }
 	set_variable = { econ_factory_output = -0.18 }
 	set_variable = { econ_dockyard_output = 0.09 }
 	set_variable = { econ_production_efficiency_cap = 0.08 }
 	set_variable = { econ_starting_factory_efficiency = 0.05 }
-	set_variable = { econ_construction_speed = -0.18 }
-	set_variable = { econ_civ_construction_speed = -0.52 }
-	set_variable = { econ_office_construction_speed = 0.28 }
-	set_variable = { econ_mil_construction_speed = 0.08 }
-	set_variable = { econ_dockyard_construction_speed = 0.23 }
-	set_variable = { econ_nuclear_reactor_construction_speed = -0.32 }
-	set_variable = { econ_energy_consumption = 0.05 }
-	set_variable = { econ_population_energy_consumption = 0.12 }
-	set_variable = { econ_renewable_energy_production = -0.04 }
-	set_variable = { econ_energy_production = 0.00 }
-	set_variable = { econ_fossil_fuel_energy_production = 0.10 }
-	set_variable = { econ_nuclear_energy_production = -0.10 }
-	set_variable = { econ_resource_extraction = 0.08 }
-	set_variable = { econ_workforce = -0.04 }
-	set_variable = { econ_civ_factory_workforce = 0.19 }
-	set_variable = { econ_mil_factory_workforce = 0.22 }
-	set_variable = { econ_office_workforce = 0.37 }
-	set_variable = { econ_resource_extraction_workforce = 0.23 }
+	set_variable = { econ_civ_factory_workforce = 0.03 }
+	set_variable = { econ_mil_factory_workforce = 0.20 }
+	set_variable = { econ_office_workforce = 0.30 }
 	set_variable = { econ_productivity = 0.100 }
+
+	###US Department of the Interior
+	add_dynamic_modifier = {
+		modifier = USA_dynamic_modifier_department_of_the_interior
+	}
+	set_variable = { doti_construction_speed = -0.18 }
+	set_variable = { doti_civ_construction_speed = -0.52 }
+	set_variable = { doti_office_construction_speed = 0.28 }
+	set_variable = { doti_mil_construction_speed = 0.08 }
+	set_variable = { doti_dockyard_construction_speed = 0.23 }
+	set_variable = { doti_nuclear_reactor_construction_speed = -0.32 }
+	set_variable = { doti_resource_extraction = 0.12 }
+
+	###US Department of Energy
+	add_dynamic_modifier = {
+		modifier = USA_dynamic_modifier_department_of_energy
+	}
+	set_variable = { doe_energy_consumption = 0.05 }
+	set_variable = { doe_population_energy_consumption = 0.12 }
+	set_variable = { doe_renewable_energy_production = -0.04 }
+	set_variable = { doe_energy_production = 0.00 }
+	set_variable = { doe_fossil_fuel_energy_production = 0.10 }
+	set_variable = { doe_nuclear_energy_production = -0.10 }
 
 	###US Domestic Policies
 	add_dynamic_modifier = {
@@ -163,7 +171,7 @@
 	set_variable = { domestic_drift_defense = 0.50 }
 	set_variable = { domestic_monthly_pop = 0.28 }
 	set_variable = { domestic_research_speed = 0.08 }
-	set_variable = { domestic_unemployment_tolerance = 0.01 }
+	set_variable = { domestic_unemployment_tolerance = 0.04 }
 	set_variable = { domestic_civ_intel = 0.08 }
 	set_variable = { domestic_encryption_factor = 0.15 }
 	set_variable = { domestic_decryption_factor = 0.05 }
@@ -184,7 +192,7 @@
 	add_to_variable = { federal_budget_education_cost = 0.43 }
 	add_to_variable = { federal_budget_healthcare_cost = 0.30 }
 	add_to_variable = { federal_budget_welfare_cost = 0.47 }
-	set_variable = { federal_budget_market_resources = 0.08 }
+	set_variable = { federal_budget_market_resources = 0.02 }
 	set_variable = { federal_budget_investment_return = 0.04 }
 	set_variable = { federal_budget_export_money_return = 0.03 }
 
@@ -193,44 +201,62 @@
 		modifier = USA_american_tax_code
 	}
 	add_to_variable = { tax_code_interest_rate = -1.00 }
-	add_to_variable = { tax_code_tax_collection_efficiency = 0.05 }
-	add_to_variable = { tax_code_population_tax_collection_efficiency = 0.07 }
-	add_to_variable = { tax_code_corporate_tax_collection_efficiency = 0.10 }
+	add_to_variable = { tax_code_tax_collection_efficiency = 0.04 }
+	add_to_variable = { tax_code_population_tax_collection_efficiency = 0.05 }
+	add_to_variable = { tax_code_corporate_tax_collection_efficiency = 0.03 }
 	add_to_variable = { tax_code_office_park_tax_collection_efficiency = -0.16 }
 	add_to_variable = { tax_code_dockyard_tax_collection_efficiency = -0.12 }
 	add_to_variable = { tax_code_military_tax_collection_efficiency = -0.17 }
 	add_to_variable = { tax_code_civilian_tax_collection_efficiency = -0.07 }
 
 
-	###Military Industrial Complex
+	###US General Staff
 	add_dynamic_modifier = {
-		modifier = USA_focus_military_industrial_complex
+		modifier = USA_dynamic_modifier_us_general_staff
 	}
-	set_variable = { military_leader_xp_gain = 0.12 }
-	set_variable = { military_recon_factor = 0.04 }
-	set_variable = { military_max_planning_factor = 0.03 }
-	set_variable = { military_supply_consumption_factor = 0.37 }
-	set_variable = { military_air_mission_efficiency = 0.00 }
-	set_variable = { military_recruitable_population = 0.04 }
-	set_variable = { military_conscription = 0.00 }
+	set_variable = { genstaff_leader_xp_gain = 0.14 }
+	set_variable = { genstaff_max_planning_factor = 0.03 }
+	set_variable = { genstaff_supply_consumption_factor = 0.37 }
+	set_variable = { genstaff_recruitable_population = 0.06 }
+	set_variable = { genstaff_conscription = 0.002 }
+	set_variable = { genstaff_daily_army_xp = 0.05 }
+	set_variable = { genstaff_daily_air_xp = 0.03 }
+	set_variable = { genstaff_daily_navy_xp = 0.08 }
+
+
+
+	###US Army
+	add_dynamic_modifier = {
+		modifier = USA_dynamic_modifier_us_army
+	}
+	set_variable = { us_army_recon_factor = 0.04 }
+	set_variable = { us_army_breakthrough_factor = 0.00 }
+	set_variable = { us_army_army_org_regain = 0.00 }
+	set_variable = { us_army_army_org = 0.00 }
+	set_variable = { us_army_army_attack = -0.12 }
+	set_variable = { us_army_army_defence = 0.00 }
+	set_variable = { us_army_army_training_time = 0.11 }
+	set_variable = { us_army_army_unit_xp_gain = 0.00 }
+	set_variable = { us_army_coordination = 0.05 }
+
+	###US Navy
+	add_dynamic_modifier = {
+		modifier = USA_dynamic_modifier_us_navy
+	}
 	set_variable = { military_repair_speed_factor = 0.13 }
 	set_variable = { military_naval_morale_factor = 0.05 }
-	set_variable = { military_breakthrough_factor = 0.00 }
 	set_variable = { military_naval_speed = 0.03 }
 	set_variable = { military_naval_damage = 0.04 }
 	set_variable = { military_naval_defense = 0.02 }
-	set_variable = { military_army_org_regain = 0.00 }
-	set_variable = { military_daily_army_xp = 0.00 }
-	set_variable = { military_daily_air_xp = 0.00 }
-	set_variable = { military_army_org = 0.00 }
-	set_variable = { military_army_attack = -0.12 }
-	set_variable = { military_army_defence = 0.00 }
-	set_variable = { military_army_training_time = 0.11 }
-	set_variable = { military_army_unit_xp_gain = 0.00 }
+
+	###US Air Force
+	add_dynamic_modifier = {
+		modifier = USA_dynamic_modifier_us_airforce
+	}
+	set_variable = { military_air_mission_efficiency = 0.10 }
 	set_variable = { military_air_attack = 0.00 }
-	set_variable = { military_air_defence = 0.00 }
-	set_variable = { military_air_agility = 0.00 }
-	set_variable = { military_coordination = 0.05 }
+	set_variable = { military_air_defence = 0.05 }
+	set_variable = { military_air_agility = 0.07 }
 
 	# Influence system
 	init_influence = yes
@@ -248,16 +274,21 @@
 	add_to_array = { influence_array = ENG.id }
 	add_to_array = { influence_array_val = 15 }
 	startup_influence = yes
+	
+	if = {
+		limit = {
+			has_dlc = "La Resistance"
+		}
+		create_intelligence_agency = {
+			name = "Central Intelligence Agency (CIA)"
+			icon = GFX_intelligence_agency_logo_usa
+		}
+	}
 
-	# General Technology Setting
 	set_technology = {
-
+		nuclear_technology = 1
 		reactor1 = 1
 		reactor2 = 1
-		reactor3 = 1
-		reactor4 = 1
-		reactor5 = 1
-		reactor6 = 1
 
 		integrated_transportation_system = 1
 		post_conventional_rail = 1
@@ -312,9 +343,8 @@
 		Anti_tank_1 = 1
 		Heavy_Anti_tank_1 = 1
 		Anti_tank_2 = 1
-		Heavy_Anti_tank_2 = 1
 
-		early_helicopter = 1
+
 		transport_helicopter1 = 1
 		transport_helicopter2 = 1
 
@@ -357,14 +387,94 @@
 		renewables = 1
 		electrification_1 = 1
 		construction1 = 1
+		stronghold_building_1 = 1
+		land_fort_building_1 = 1
 		construction2 = 1
 		excavation1 = 1
 		excavation2 = 1
+
+		GNSS1 = 1
+		GNSS2 = 1
+		GNSS3 = 1
+		GNSS4 = 1
+
+		COMSAT1 = 1
+		COMSAT2 = 1
+		COMSAT3 = 1
+		COMSAT4 = 1
+
+		SPYSAT1 = 1
+		SPYSAT2 = 1
+		SPYSAT3 = 1
+		SPYSAT4 = 1
+
+		OLV1 = 1
+		OLV2 = 1
+		OLV3 = 1
+		OLV4 = 1
 	}
 
+	complete_special_project = sp:sp_helicopter_project
 
-	if = {
-		limit = { has_dlc = "No Step Back" }
+	if = { limit = { has_dlc = "Gotterdammerung" }
+		set_technology = {
+			# Missile System
+			# Cruise Missile
+			ballistic_missile = 1
+
+			ICBM = 1
+			ICBM1 = 1
+			ICBM2 = 1
+			ICBM3 = 1
+			ICBM4 = 1
+
+			IRBM = 1
+			IRBM1 = 1
+			IRBM2 = 1
+			IRBM3 = 1
+			NIRBM1 = 1
+			NIRBM2 = 1
+
+			cruise_missile = 1
+
+			GLCM = 1
+			GLCM1 = 1
+			GLCM2 = 1
+			GLCM3 = 1
+			GLCM4 = 1
+
+			TEL_launched_missiles = 1
+			TEL_3 = 1
+			TEL_4 = 1
+
+			air_defense = 1
+
+			SAM = 1
+			SAM0 = 1
+			SAM1 = 1
+			SAM2 = 1
+			SAM3 = 1
+
+			hid_tech_missile_1 = 1
+			hid_tech_missile_2 = 1
+			hid_tech_missile_3 = 1
+			hid_tech_missile_4 = 1
+			hid_tech_missile_5 = 1
+			hid_tech_missile_6 = 1
+			hid_tech_missile_7 = 1
+		}
+
+		complete_special_project = sp:sp_space_program_gdm
+		complete_special_project = sp:sp_nuclear_warhead_program
+		complete_special_project = sp:sp_missile_project
+
+		set_variable = { num_launchers_set = 7 }
+		else = {
+			complete_special_project = sp:sp_space_program_non_gdm
+		}
+	}
+
+	if = { limit = { has_dlc = "No Step Back" }
 		set_technology = {
 			mbt_tech = 1
 			mbt_tech_1 = 1
@@ -386,6 +496,7 @@
 			diesel_engine_tech_4 = 1
 			turbine_engine_tech = 1
 			turbine_engine_tech_2 = 1
+			turbine_engine_tech_3 = 1
 			electric_engine_tech_1 = 1
 			electric_engine_tech_2 = 1
 			afv_tech = 1
@@ -401,6 +512,7 @@
 			nsb_Arty_upgrade_1 = 1
 			nsb_Arty_upgrade_2 = 1
 			nsb_Arty_upgrade_3 = 1
+			nsb_SP_arty_0 = 1
 			nsb_SP_arty_1 = 1
 			nsb_artillery_1 = 1
 			nsb_SP_arty_2 = 1
@@ -413,12 +525,13 @@
 			nsb_Anti_Air_1 = 1
 			nsb_SP_Anti_Air_1 = 1
 			nsb_AA_upgrade_2 = 1
-			nsb_Anti_Air_2 = 1
-			nsb_AA_upgrade_3 = 1
 			nsb_attack_helicopter_tech_1 = 1
 			nsb_attack_helicopter_tech_2 = 1
 			nsb_attack_helicopter_tech_3 = 1
 		}
+		#complete_special_project = sp:sp_21stcentury_thermal
+		complete_special_project = sp:sp_ground_fireandforget
+
 		create_equipment_variant = {
 			name = "Hughes 500D"
 			type = attack_helicopter_hull_0
@@ -436,7 +549,7 @@
 				helicopter_nsb_upgrade = 0
 			}
 			obsolete = yes
-			#icon = "GFX_USA_attack_helicopter1_medium"
+			icon = "gfx/interface/technologies/USA/AIR/AH0_alt1.dds"
 		}
 		create_equipment_variant = {
 			name = "AH-1 Cobra"
@@ -459,17 +572,16 @@
 		}
 		create_equipment_variant = {
 			name = "AH-1S Cobra"
-			type = attack_helicopter_hull_1
-			parent_version = 0
+			type = attack_helicopter_hull_0
+			parent_version = 1
 			modules = {
 				helicopter_inner_hardpoint = helicopter_multiple_atgm_gen1
 				nose_gun_type_slot = helicopter_medium_nose_gun_gen2
 				armor_type_slot = helicopter_armor_gen1
 				engine_type_slot = helicopter_turbine_engine_gen2
-				defence_type_slot = flare_launchers
+				defence_type_slot = em_lock_detection_system_gen2
 				sensor_and_avionics_slot = sensors_and_avionics_gen_2
 				helicopter_middle_hardpoint_1 = helicopter_rocket_pod_gen1
-				special_defensive_type_slot_1 = em_lock_detection_system_gen1
 			}
 			upgrades = {
 				helicopter_nsb_upgrade = 3
@@ -480,7 +592,7 @@
 		create_equipment_variant = {
 			name = "AH-1W SuperCobra"
 			type = attack_helicopter_hull_1
-			parent_version = 0
+			parent_version = 3
 			modules = {
 				helicopter_inner_hardpoint = helicopter_rocket_pod_gen1
 				nose_gun_type_slot = helicopter_medium_nose_gun_gen2
@@ -515,12 +627,56 @@
 				helicopter_nsb_upgrade = 1
 			}
 			obsolete = yes
-			#icon = "GFX_USA_attack_helicopter1_medium"
+			icon = "gfx/interface/technologies/USA/AIR/AH0_alt1.dds"
+		}
+		create_equipment_variant = {
+			name = "OH-58C Kiowa"
+			type = attack_helicopter_hull_1
+			parent_version = 0
+			modules = {
+				helicopter_inner_hardpoint = helicopter_rocket_pod_gen1
+				nose_gun_type_slot = empty
+				armor_type_slot = helicopter_armor_gen1
+				engine_type_slot = helicopter_turbine_engine_gen1
+				defence_type_slot = flare_launchers
+				sensor_and_avionics_slot = sensors_and_avionics_gen_1
+				helicopter_middle_hardpoint_1 = empty
+				special_defensive_type_slot_1 = em_lock_detection_system_gen1
+			}
+			upgrades = {
+				helicopter_nsb_upgrade = 0
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/OH58.dds"
+			design_team = mio:USA_bell_helicopter_textron_tank_manufacturer
+			model = "USA_attack_helo_bat_entity"
+		}
+		create_equipment_variant = {
+			name = "OH-58D Kiowa"
+			type = attack_helicopter_hull_1
+			parent_version = 1
+			modules = {
+				helicopter_inner_hardpoint = helicopter_rocket_pod_gen1
+				nose_gun_type_slot = empty
+				armor_type_slot = helicopter_armor_gen1
+				engine_type_slot = helicopter_turbine_engine_gen1
+				defence_type_slot = flare_launchers
+				sensor_and_avionics_slot = sensors_and_avionics_gen_2
+				helicopter_middle_hardpoint_1 = empty
+				special_defensive_type_slot_1 = em_lock_detection_system_gen2
+			}
+			upgrades = {
+				helicopter_nsb_upgrade = 0
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/OH58D.dds"
+			design_team = mio:USA_bell_helicopter_textron_tank_manufacturer
+			model = "USA_attack_helo_bat_entity"
 		}
 		create_equipment_variant = {
 			name = "OH-58D Kiowa Warrior"
-			type = attack_helicopter_hull_0
-			parent_version = 0
+			type = attack_helicopter_hull_1
+			parent_version = 3
 			modules = {
 				helicopter_inner_hardpoint = helicopter_rocket_pod_gen1
 				nose_gun_type_slot = empty
@@ -529,6 +685,7 @@
 				defence_type_slot = flare_launchers
 				sensor_and_avionics_slot = sensors_and_avionics_gen_2
 				helicopter_middle_hardpoint_1 = helicopter_multiple_atgm_gen2
+				special_defensive_type_slot_1 = em_lock_detection_system_gen2
 			}
 			upgrades = {
 				helicopter_nsb_upgrade = 0
@@ -544,7 +701,7 @@
 			parent_version = 0
 			modules = {
 				helicopter_inner_hardpoint = helicopter_multiple_atgm_gen2
-				nose_gun_type_slot = helicopter_medium_nose_gun_gen2
+				nose_gun_type_slot = helicopter_heavy_nose_gun_gen2
 				armor_type_slot = helicopter_armor_gen2
 				engine_type_slot = helicopter_turbine_engine_gen2
 				defence_type_slot = flare_launchers
@@ -556,7 +713,7 @@
 				helicopter_nsb_upgrade = 5
 			}
 			obsolete = yes
-			icon = "GFX_USA_attack_helicopter2_medium"
+			icon = "gfx/interface/technologies/USA/AIR/AH2.dds"
 			model = "USA_attack_helo_bat_entity"
 		}
 		create_equipment_variant = {
@@ -576,8 +733,29 @@
 			upgrades = {
 				helicopter_nsb_upgrade = 5
 			}
-			icon = "GFX_USA_attack_helicopter3_medium"
+			icon = "gfx/interface/technologies/USA/AIR/AH3.dds"
 			model = "USA_attack_helo_bat_entity"
+		}
+		create_equipment_variant = {
+			name = "M47 Patton"
+			type = mbt_hull_0
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_small_cannon
+				turret_type_slot = tank_soviet_turret
+				suspension_type_slot = tank_torsion_bar_suspension
+				armor_type_slot = tank_steel_armor_gen1
+				engine_type_slot = tank_diesel_engine_gen1
+				reload_type_slot = manual_loading
+				special_type_slot_1 = additional_machine_guns
+				special_type_slot_4 = tank_battlestation_1
+			}
+			upgrades = {
+				tank_nsb_armor_upgrade = 1
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/M47.dds"
+			model = "USA_M48A5_entity"
 		}
 		create_equipment_variant = {
 			name = "M48 Patton"
@@ -610,7 +788,7 @@
 				turret_type_slot = tank_soviet_turret
 				suspension_type_slot = tank_torsion_bar_suspension
 				armor_type_slot = tank_steel_armor_gen1
-				engine_type_slot = tank_diesel_engine_gen1
+				engine_type_slot = tank_diesel_engine_gen2
 				reload_type_slot = manual_loading
 				special_type_slot_1 = additional_machine_guns
 				special_type_slot_4 = tank_battlestation_1
@@ -659,7 +837,7 @@
 				reload_type_slot = manual_loading
 				special_type_slot_1 = additional_machine_guns
 				special_type_slot_2 = smoke_launchers_2
-				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_4 = tank_battlestation_2_thermal
 			}
 			upgrades = {
 				tank_nsb_armor_upgrade = 4
@@ -668,7 +846,7 @@
 			icon = "gfx/interface/technologies/USA/LAND/MBT1.dds"
 			model = "M60A1_entity"
 		}
-		
+
 		create_equipment_variant = {
 			name = "M1 Abrams"
 			type = mbt_hull_1
@@ -683,7 +861,7 @@
 				special_type_slot_1 = additional_machine_guns
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = wet_ammo_storage
-				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_4 = tank_battlestation_2_thermal
 			}
 			upgrades = {
 				tank_nsb_armor_upgrade = 1
@@ -707,7 +885,7 @@
 				special_type_slot_1 = additional_machine_guns
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = wet_ammo_storage
-				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_4 = tank_battlestation_2_thermal
 			}
 			upgrades = {
 				tank_nsb_armor_upgrade = 3
@@ -731,7 +909,7 @@
 				special_type_slot_1 = additional_machine_guns
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = wet_ammo_storage
-				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_4 = tank_battlestation_2_thermal
 			}
 			upgrades = {
 				tank_nsb_armor_upgrade = 3
@@ -740,6 +918,14 @@
 			icon = "gfx/interface/technologies/USA/LAND/M1A1.dds"
 			model = "USA_MD4_medium_armor_entity"
 			design_team = mio:USA_general_dynamics_materiel_manufacturer
+		}
+		create_production_license = { 
+			target = EGY
+			equipment = {
+				type = mbt_hull_1
+				version_name = "M1A1 Abrams"
+			}
+			cost_factor = 0
 		}
 		create_equipment_variant = {
 			name = "M1A1HA Abrams"
@@ -755,7 +941,7 @@
 				special_type_slot_1 = tank_aux_engine
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = wet_ammo_storage
-				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_4 = tank_battlestation_2_thermal
 			}
 			upgrades = {
 				tank_nsb_armor_upgrade = 6
@@ -798,12 +984,12 @@
 				turret_type_slot = tank_base_tank_turret
 				suspension_type_slot = tank_torsion_bar_suspension
 				armor_type_slot = tank_composite_armor_gen2
-				engine_type_slot = tank_gas_turbine_engine_gen4
+				engine_type_slot = tank_gas_turbine_engine_gen3
 				reload_type_slot = manual_loading
 				special_type_slot_1 = tank_aux_engine
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = wet_ammo_storage
-				special_type_slot_4 = tank_battlestation_2
+				special_type_slot_4 = tank_battlestation_3
 			}
 			upgrades = {
 				tank_nsb_armor_upgrade = 5
@@ -823,7 +1009,7 @@
 				turret_type_slot = tank_base_tank_turret
 				suspension_type_slot = tank_torsion_bar_suspension
 				armor_type_slot = tank_composite_armor_gen2
-				engine_type_slot = tank_gas_turbine_engine_gen4
+				engine_type_slot = tank_gas_turbine_engine_gen3
 				reload_type_slot = manual_loading
 				special_type_slot_1 = tank_aux_engine_2
 				special_type_slot_2 = smoke_launchers_2
@@ -833,7 +1019,7 @@
 			upgrades = {
 				tank_nsb_armor_upgrade = 7
 			}
-			icon = "gfx/interface/technologies/USA/LAND/MBT4.dds"
+			icon = "gfx/interface/technologies/USA/LAND/MBT3.dds"
 			model = "USA_MD4_medium_armor_entity_2"
 			design_team = mio:USA_general_dynamics_materiel_manufacturer
 		}
@@ -942,7 +1128,7 @@
 				afv_nsb_armor_upgrade = 3
 			}
 			obsolete = yes
-			icon = "GFX_USA_IFV_1"
+			icon = "gfx/interface/technologies/HOL/LAND/APC3.dds"
 		}
 
 		create_equipment_variant = {
@@ -980,7 +1166,7 @@
 				engine_type_slot = tank_diesel_engine_gen2
 				special_type_slot_1 = smoke_launchers_2
 				special_type_slot_3 = afv_reverse_doors
-				special_type_slot_4 = afv_battlestation_2
+				special_type_slot_4 = afv_battlestation_2_thermal
 			}
 			upgrades = {
 				afv_nsb_armor_upgrade = 3
@@ -996,8 +1182,8 @@
 			type = ifv_hull_1
 			parent_version = 0
 			modules = {
-				main_armament_slot = afv_assault_gun_2
-				turret_type_slot = afv_no_turret
+				main_armament_slot = small_autocannon
+				turret_type_slot = afv_base_turret
 				suspension_type_slot = afv_tracked_suspension
 				armor_type_slot = afv_steel_armor_gen2
 				engine_type_slot = tank_diesel_engine_gen2
@@ -1008,7 +1194,7 @@
 				afv_nsb_armor_upgrade = 1
 			}
 			obsolete = yes
-			icon = "GFX_USA_APC_2"
+			icon = "gfx/interface/technologies/USA/LAND/Dragoon300.dds"
 		}
 
 		create_equipment_variant = {
@@ -1019,12 +1205,12 @@
 				main_armament_slot = small_autocannon_2
 				turret_type_slot = afv_base_turret
 				suspension_type_slot = afv_torsion_bar_suspension
-				armor_type_slot = afv_steel_armor_gen2
+				armor_type_slot = afv_alum_armor_gen2
 				engine_type_slot = tank_diesel_engine_gen2
 				special_type_slot_1 = smoke_launchers
 				special_type_slot_2 = afv_atgm_gen2
 				special_type_slot_3 = afv_reverse_doors
-				special_type_slot_4 = afv_battlestation_2
+				special_type_slot_4 = afv_battlestation_2_thermal
 			}
 			obsolete = yes
 			icon = "GFX_USA_IFV_3"
@@ -1039,15 +1225,15 @@
 				main_armament_slot = small_autocannon_2
 				turret_type_slot = afv_base_turret
 				suspension_type_slot = afv_torsion_bar_suspension
-				armor_type_slot = afv_steel_armor_gen2
+				armor_type_slot = afv_alum_armor_gen2
 				engine_type_slot = tank_diesel_engine_gen2
 				special_type_slot_1 = smoke_launchers_2
 				special_type_slot_2 = afv_atgm_gen3
 				special_type_slot_3 = afv_reverse_doors
-				special_type_slot_4 = afv_battlestation_2
+				special_type_slot_4 = afv_battlestation_2_thermal
 			}
 			upgrades = {
-				afv_nsb_armor_upgrade = 2
+				afv_nsb_armor_upgrade = 3
 			}
 			obsolete = yes
 			icon = "GFX_USA_IFV_10_medium"
@@ -1062,7 +1248,7 @@
 				main_armament_slot = small_autocannon_2
 				turret_type_slot = afv_base_turret
 				suspension_type_slot = afv_torsion_bar_suspension
-				armor_type_slot = afv_steel_armor_gen2
+				armor_type_slot = afv_alum_armor_gen2
 				engine_type_slot = tank_diesel_engine_gen2
 				special_type_slot_1 = smoke_launchers_2
 				special_type_slot_2 = afv_atgm_gen3
@@ -1070,7 +1256,7 @@
 				special_type_slot_4 = afv_battlestation_3
 			}
 			upgrades = {
-				afv_nsb_armor_upgrade = 2
+				afv_nsb_armor_upgrade = 3
 			}
 			icon = "GFX_USA_IFV_4"
 			model = "USA_M2A3bradley_entity"
@@ -1097,10 +1283,30 @@
 			obsolete = yes
 			icon = "gfx/interface/technologies/USA/LAND/SPG1.dds"
 		}
-
+		create_equipment_variant = {
+			name = "M108"
+			type = spart_hull_1
+			parent_version = 1
+			modules = {
+				arty_main_armament_slot = art_small_gun_gen1
+				chassis_type_slot = chassis_afv_gen0
+				engine_type_slot = tank_diesel_engine_gen2
+				conversion_type_slot = empty
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = art_battlestation_gen1
+			}
+			upgrades = {
+				art_nsb_fire_upgrade = 1
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/M108.dds"
+			design_team = mio:USA_united_defense_tank_manufacturer
+		}
 		create_equipment_variant = {
 			name = "M109"
-			type = spart_hull_0
+			type = spart_hull_1
 			parent_version = 1
 			modules = {
 				arty_main_armament_slot = art_med_gun_gen1
@@ -1119,7 +1325,26 @@
 			icon = "gfx/interface/technologies/USA/LAND/SPG1.dds"
 			design_team = mio:USA_united_defense_tank_manufacturer
 		}
-
+		create_equipment_variant = {
+			name = "M107"
+			type = spart_hull_0
+			parent_version = 1
+			modules = {
+				arty_main_armament_slot = art_big_gun_gen1
+				chassis_type_slot = chassis_tank_gen0
+				engine_type_slot = tank_diesel_engine_gen2
+				conversion_type_slot = empty
+				special_type_slot_1 = rocket_assisted_ammo_gun_big_gen1
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = art_battlestation_gen1
+			}
+			upgrades = {
+				art_nsb_fire_upgrade = 1
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/M107.dds"
+		}
 		create_equipment_variant = {
 			name = "M110"
 			type = spart_hull_0
@@ -1138,15 +1363,15 @@
 				art_nsb_fire_upgrade = 2
 			}
 			obsolete = yes
-			icon = "gfx/interface/technologies/USA/LAND/M107.dds"
+			icon = "gfx/interface/technologies/USA/LAND/M110.dds"
 		}
 
 		create_equipment_variant = {
 			name = "M110A2"
-			type = spart_hull_1
+			type = spart_hull_0
 			parent_version = 3
 			modules = {
-				arty_main_armament_slot = art_big_gun_gen1
+				arty_main_armament_slot = art_big_gun_gen2
 				chassis_type_slot = chassis_tank_gen0
 				engine_type_slot = tank_diesel_engine_gen2
 				conversion_type_slot = empty
@@ -1156,10 +1381,10 @@
 				special_type_slot_4 = art_battlestation_gen1
 			}
 			upgrades = {
-				art_nsb_fire_upgrade = 3
+				art_nsb_fire_upgrade = 2
 			}
 			obsolete = yes
-			icon = "gfx/interface/technologies/USA/LAND/M107.dds"
+			icon = "gfx/interface/technologies/USA/LAND/M110A2.dds"
 		}
 
 		create_equipment_variant = {
@@ -1263,9 +1488,9 @@
 				special_type_slot_4 = art_battlestation_gen2
 			}
 			upgrades = {
-				art_nsb_fire_upgrade = 2
+				art_nsb_fire_upgrade = 4
 			}
-			icon = "GFX_USA_spart_hull_r_0"
+			icon = "gfx/interface/technologies/USA/LAND/SPR1.dds"
 		}
 
 		create_equipment_variant = {
@@ -1289,7 +1514,7 @@
 				afv_nsb_armor_upgrade = 0
 			}
 			obsolete = yes
-			icon = "GFX_USA_Rec_tank_0_medium"
+			icon = "gfx/interface/technologies/USA/LAND/V150.dds"
 		}
 
 		create_equipment_variant = {
@@ -1307,12 +1532,12 @@
 				special_type_slot_1 = afv_additional_machine_guns
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = smoothbore_atgm_gen2
-				special_type_slot_4 = afv_battlestation_2
+				special_type_slot_4 = afv_battlestation_2_thermal
 			}
 			upgrades = {
 				afv_nsb_armor_upgrade = 0
 			}
-			icon = "GFX_USA_Rec_tank_0_medium"
+			icon = "gfx/interface/technologies/USA/LAND/REC2.dds"
 			obsolete = yes
 		}
 
@@ -1355,37 +1580,13 @@
 				special_type_slot_1 = afv_additional_machine_guns
 				special_type_slot_2 = smoke_launchers
 				special_type_slot_3 = wet_ammo_storage
-				special_type_slot_4 = afv_battlestation_2
+				special_type_slot_4 = afv_battlestation_2_thermal
 			}
 			upgrades = {
 				afv_nsb_armor_upgrade = 2
 			}
 			obsolete = yes
 			icon = "GFX_USA_Rec_tank_1_medium"
-		}
-
-		create_equipment_variant = {
-			name = "LAV-600"
-			type = light_tank_hull_2
-			parent_version = 0
-			modules = {
-				main_armament_slot = tank_small_medium_cannon
-				turret_type_slot = tank_base_tank_turret
-				chassis_type_slot = chassis_wheeled_afv_gen2
-				engine_type_slot = tank_diesel_engine_gen4
-				armor_type_slot = afv_composite_armor_gen2
-				reload_type_slot = manual_loading
-				special_armament_type_slot = additional_machine_guns
-				special_type_slot_1 = afv_additional_machine_guns
-				special_type_slot_2 = smoke_launchers_2
-				special_type_slot_3 = smoke_launchers_2
-				special_type_slot_4 = afv_battlestation_3
-			}
-			upgrades = {
-				afv_nsb_armor_upgrade = 4
-			}
-			icon = "GFX_USA_Rec_tank_2_medium"
-			obsolete = yes
 		}
 
 		create_equipment_variant = {
@@ -1402,7 +1603,7 @@
 				special_armament_type_slot = afv_reverse_doors
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = afv_atgm_gen3
-				special_type_slot_4 = afv_battlestation_2
+				special_type_slot_4 = afv_battlestation_2_thermal
 			}
 			upgrades = {
 				afv_nsb_armor_upgrade = 2
@@ -1456,9 +1657,30 @@
 				spaa_nsb_fire_upgrade = 0
 			}
 			obsolete = yes
-			icon = "GFX_USA_SP_Anti_Air_0_medium"
+			icon = "gfx/interface/technologies/USA/LAND/SPA1.dds"
 		}
 
+		create_equipment_variant = {
+			name = "MIM-72 Chaparral"
+			type = spaa_hull_0
+			parent_version = 1
+			modules = {
+				main_armament_slot = spaa_short_range_missiles_1
+				chassis_type_slot = spaa_chassis_afv_gen0
+				engine_type_slot = tank_diesel_engine_gen3
+				radar_type_slot = spaa_optical_guidance_gen2
+				spaa_secondary_armament = empty
+				special_type_slot_1 = empty
+				special_type_slot_2 = empty
+				special_type_slot_3 = empty
+				special_type_slot_4 = spaa_battlestation_gen2
+			}
+			upgrades = {
+				spaa_nsb_fire_upgrade = 4
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/SPA1alt.dds"
+		}
 		create_equipment_variant = {
 			name = "AN/TWQ-1 Avenger"
 			type = spaa_hull_1
@@ -1467,7 +1689,7 @@
 				main_armament_slot = spaa_short_range_missiles_2
 				chassis_type_slot = spaa_chassis_truck_gen1
 				engine_type_slot = tank_diesel_engine_gen4
-				radar_type_slot = spaa_off_vehicle_radar_gen2
+				radar_type_slot = spaa_optical_guidance_gen2
 				spaa_secondary_armament = empty
 				special_type_slot_1 = empty
 				special_type_slot_2 = empty
@@ -1477,12 +1699,12 @@
 			upgrades = {
 				spaa_nsb_fire_upgrade = 1
 			}
-			icon = "GFX_USA_SP_Anti_Air_1_medium"
+			icon = "gfx/interface/technologies/USA/LAND/SPA2.dds"
 			model = "USA_Avenger_entity"
 			design_team = mio:USA_raytheon_materiel_manufacturer
 		}
 		create_equipment_variant = {
-			name = "MIM-104 Patriot"
+			name = "NASAM 1"
 			type = spaa_hull_1
 			parent_version = 2
 			modules = {
@@ -1491,17 +1713,17 @@
 				engine_type_slot = tank_diesel_engine_gen4
 				radar_type_slot = spaa_off_vehicle_radar_gen3
 				spaa_secondary_armament = empty
-				special_type_slot_1 = spaced_armor_gen2
+				special_type_slot_1 = empty
 				special_type_slot_2 = tank_aux_engine
 				special_type_slot_3 = tank_aux_engine
-				special_type_slot_4 = spaa_battlestation_gen3
+				special_type_slot_4 = spaa_battlestation_gen2
 			}
 			upgrades = {
 				spaa_nsb_fire_upgrade = 3
 			}
-			icon = "gfx/interface/technologies/USA/LAND/patriot.dds"
+			icon = "gfx/interface/technologies/USA/LAND/NASAM.dds"
 			design_team = mio:USA_raytheon_materiel_manufacturer
-			model = "USA_SP_AA_Bat_entity"
+			model = "USA_Avenger_entity"
 		}
 
 		create_equipment_variant = {
@@ -1517,57 +1739,88 @@
 				special_type_slot_1 = spaced_armor_gen2
 				special_type_slot_2 = smoke_launchers_2
 				special_type_slot_3 = empty
-				special_type_slot_4 = spaa_battlestation_gen3
+				special_type_slot_4 = spaa_battlestation_gen2
 			}
 			upgrades = {
 				spaa_nsb_fire_upgrade = 1
 			}
 			icon = "gfx/interface/technologies/USA/LAND/Linebacker.dds"
 			obsolete = yes
+			model = "USA_Avenger_entity"
 		}
-
 		create_equipment_variant = {
-			name = "MIM-23 Hawk"
-			type = spaa_hull_0
-			parent_version = 0
-			modules = {
-				main_armament_slot = spaa_long_range_missiles_1
-				chassis_type_slot = spaa_chassis_afv_gen0
-				engine_type_slot = tank_diesel_engine_gen3
-				radar_type_slot = spaa_off_vehicle_radar_gen1
-				spaa_secondary_armament = empty
-				special_type_slot_1 = spaced_armor_gen2
-				special_type_slot_2 = smoke_launchers_2
-				special_type_slot_3 = smoke_launchers_2
-				special_type_slot_4 = spaa_battlestation_gen2
-			}
+			name = "M101"
+			type = artillery_0
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/M101.dds"
+			mark_older_equipment_obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "M114"
+			type = artillery_0
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/M114.dds"
+			mark_older_equipment_obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "M1"
+			type = artillery_0
 			upgrades = {
-				spaa_nsb_fire_upgrade = 3
+			L_Arty_Warhead = 2
 			}
 			obsolete = yes
-			icon = "GFX_USA_SP_Anti_Air_1_medium"
+			icon = "gfx/interface/technologies/USA/LAND/M203.dds"
+			mark_older_equipment_obsolete = yes
 		}
-
 		create_equipment_variant = {
-			name = "MIM-72 Chaparral"
-			type = spaa_hull_0
-			parent_version = 0
-			modules = {
-				main_armament_slot = spaa_short_range_missiles_1
-				chassis_type_slot = spaa_chassis_afv_gen0
-				engine_type_slot = tank_diesel_engine_gen3
-				radar_type_slot = spaa_off_vehicle_radar_gen1
-				spaa_secondary_armament = empty
-				special_type_slot_1 = empty
-				special_type_slot_2 = empty
-				special_type_slot_3 = empty
-				special_type_slot_4 = spaa_battlestation_gen2
-			}
+			name = "M115"
+			type = artillery_0
 			upgrades = {
-				spaa_nsb_fire_upgrade = 4
+			L_Arty_Warhead = 5
 			}
 			obsolete = yes
-			icon = "GFX_USA_SP_Anti_Air_1_medium"
+			icon = "gfx/interface/technologies/USA/LAND/M115.dds"
+			mark_older_equipment_obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "M102"
+			type = artillery_0
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/LAND/ART1.dds"
+			mark_older_equipment_obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "Colt Commando"
+			type = infantry_weapons2
+			upgrades = {
+				Inf_eq_gadjets = 1
+				Inf_eq_heavy_weapons = 1
+			}
+			design_team = mio:USA_colt_defense_materiel_manufacturer
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/INF/INF3_alt1.dds"
+		}
+		create_equipment_variant = {
+			name = "M16A2"
+			type = infantry_weapons2
+			upgrades = {
+				Inf_eq_gadjets = 1
+				Inf_eq_heavy_weapons = 1
+			}
+			design_team = mio:USA_colt_defense_materiel_manufacturer
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/INF/INF3.dds"
+		}
+		create_equipment_variant = {
+			name = "M4 SOPMOD Block I"
+			type = infantry_weapons3
+			upgrades = {
+				Inf_eq_gadjets = 2
+				Inf_eq_heavy_weapons = 2
+			}
+			design_team = mio:USA_colt_defense_materiel_manufacturer
+			mark_older_equipment_obsolete = yes
+			icon = "gfx/interface/technologies/USA/INF/M4SOPMOD.dds"
 		}
 		create_equipment_variant = {
 			name = "Colt M16A4"
@@ -1588,6 +1841,17 @@
 				L_AT_Reliability = 1
 			}
 			design_team = mio:USA_raytheon_materiel_manufacturer
+		}
+		create_equipment_variant = {
+			name = "MK 153 SMAW"
+			type = Anti_tank_0
+			parent_version = 1
+			upgrades = {
+				L_AT_Warhead = 2
+				L_AT_Reliability = 2
+			}
+			design_team = mio:USA_raytheon_materiel_manufacturer
+			icon = "gfx/interface/technologies/USA/INF/SMAW.dds"
 		}
 		create_equipment_variant = {
 			name = "M72A4 LAW"
@@ -1666,8 +1930,9 @@
 		}
 		create_equipment_variant = {
 			name = "FIM-92E Stinger RMP Block I"
-			type = Anti_Air_2 #Upgraded Stinger
+			type = Anti_Air_1 #Upgraded Stinger
 			upgrades = {
+				AA_Fire_Control = 2
 			}
 			design_team = mio:USA_raytheon_materiel_manufacturer
 			mark_older_equipment_obsolete = yes
@@ -1681,14 +1946,97 @@
 			design_team = mio:USA_textron_tank_manufacturer
 			mark_older_equipment_obsolete = yes
 		}
-			create_equipment_variant = {
-			name = "UH-60A"
+		create_equipment_variant = {
+			name = "UH-1H Huey"
+			type = transport_helicopter1
+			upgrades = {
+			}
+			icon = "gfx/interface/technologies/USA/AIR/UH1.dds"
+			obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "CH-46D Sea Knight"
+			type = transport_helicopter1
+			upgrades = {
+			}
+			icon = "gfx/interface/technologies/USA/AIR/UH1_alt2.dds"
+			obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "UH-1N Twin Huey"
+			type = transport_helicopter1
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH1_alt1.dds"
+		}
+		create_equipment_variant = {
+			name = "MH-6 Little Bird"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt6.dds"
+		}
+		create_equipment_variant = {
+			name = "MH-60L Black Hawk"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt3.dds"
+		}
+		create_equipment_variant = {
+			name = "HH-60L"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt1.dds"
+		}
+		create_equipment_variant = {
+			name = "MH-53J Pave Low"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt7.dds"
+		}
+		create_equipment_variant = {
+			name = "CH-53 Sea Stallion"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt2.dds"
+		}
+		create_equipment_variant = {
+			name = "CH-47 Chinook"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt4.dds"
+		}
+		create_equipment_variant = {
+			name = "MH-47 Chinook"
+			type = transport_helicopter2
+			upgrades = {
+			}
+			obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2_alt5.dds"
+		}
+		create_equipment_variant = {
+			name = "UH-60L Black Hawk"
 			type = transport_helicopter2
 			upgrades = {
 			}
 			design_team = mio:USA_sikorsky_aircraft_tank_manufacturer
 			mark_older_equipment_obsolete = yes
+			icon = "gfx/interface/technologies/USA/AIR/UH2.dds"
 		}
+
+		complete_special_project = sp:sp_armoured_vehicle_project
 
 		else = {
 			set_technology = {
@@ -1798,6 +2146,28 @@
 					tank_gun_upgrade = 0
 				}
 			}
+			create_equipment_variant = {
+				name = "AH-1Z Viper"
+				type = attack_helicopter4 #AH-1Z Viper
+				parent_version = 0
+				upgrades = {
+					plane_cas_upgrade = 1
+					plane_range_upgrade = 0
+					plane_engine_upgrade = 1
+					plane_reliability_upgrade = 2
+				}
+			}
+
+			create_equipment_variant = {
+				name = "AH-1W Super Cobra"
+				type = attack_helicopter2 #AH-1W Super Cobra
+				upgrades = {
+					plane_cas_upgrade = 0
+					plane_range_upgrade = 0
+					plane_engine_upgrade = 0
+					plane_reliability_upgrade = 1
+				}
+			}
 		}
 	}
 
@@ -1818,7 +2188,7 @@
 			cruiser_hull_1 = 1
 			cruiser_hull_2 = 1
 
-			tech_battleship_hull_1 = 1
+			battleship_hull_1 = 1
 
 			helicopter_operator_hull_1 = 1
 			helicopter_operator_hull_2 = 1
@@ -1868,7 +2238,6 @@
 			tech_point_defense_system_2 = 1
 			tech_point_defense_system_3 = 1
 
-			tech_missile_systems = 1
 			tech_turret_missiles_surface = 1
 			tech_turret_missiles_surface_1 = 1
 			tech_turret_missiles_surface_2 = 1
@@ -1919,6 +2288,8 @@
 				rear_2_custom_slot = empty
 			}
 			obsolete = yes
+			icon = "gfx/interface/technologies/USA/NAV/iowa.dds"
+			model = "USA_iowa_entity"
 		}
 		create_equipment_variant = {
 			name = "Iowa Class 80s refit"
@@ -1942,6 +2313,8 @@
 				rear_1_custom_slot = empty
 				rear_2_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/iowa.dds"
+			model = "USA_iowa_entity"
 		}
 		#Kitty Hawk Class
 		create_equipment_variant = {
@@ -1966,6 +2339,7 @@
 				rear_1_custom_slot = module_ram_1
 				rear_2_custom_slot = module_ciws_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CVN0.dds"
 			model = "USA_carrier_2_entity"
 			obsolete = yes
 			design_team = mio:USA_northrop_grumman_newport_news_naval_manufacturer2
@@ -1993,6 +2367,7 @@
 				rear_1_custom_slot = module_ram_3
 				rear_2_custom_slot = module_ram_3
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CVN0_enterprise.dds"
 			model = "USA_carrier_2_entity"
 			obsolete = yes
 			design_team = mio:USA_northrop_grumman_newport_news_naval_manufacturer2
@@ -2020,6 +2395,7 @@
 				rear_1_custom_slot = module_ram_2
 				rear_2_custom_slot = module_aa_missiles_3
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CVN0.dds"
 			model = "USA_carrier_2_entity"
 			obsolete = yes
 			design_team = mio:USA_northrop_grumman_newport_news_naval_manufacturer2
@@ -2217,7 +2593,7 @@
 				rear_2_custom_slot = module_light_helipad_1
 			}
 			obsolete = yes
-			icon = "gfx/interface/technologies/USA/NAV/CA3.dds"
+			icon = "gfx/interface/technologies/USA/NAV/CA2.dds"
 			model = "USA_cruiser_entity"
 			design_team = mio:USA_ingalls_shipbuilding_naval_manufacturer
 		}
@@ -2243,9 +2619,53 @@
 				rear_1_custom_slot = module_vls_asm_3
 				rear_2_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CA3.dds"
 			design_team = mio:USA_ingalls_shipbuilding_naval_manufacturer
-			icon = "gfx/interface/technologies/USA/NAV/CA4.dds"
 			model = "USA_cruiser_entity"
+		}
+		#Gearing Class #Taiwan ship
+		create_equipment_variant = {
+			name = "Gearing Class (Taiwanese Modernization)"
+			type = destroyer_hull_1
+			name_group = USA_MODERN_DESTROYERS_NAMES
+			role_icon_index = 4
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = module_surface_jet_turbine_power
+				fixed_ship_fire_control_system_slot = module_analog_fire_control
+				fixed_ship_radar_slot = module_radar_1
+				fixed_ship_auxillary_slot_3 = module_aa_missiles_2
+				fixed_ship_auxillary_slot_2 = module_anti_submarine_missile_1
+				fixed_ship_auxillary_slot = module_ciws_2
+				fixed_ship_battery_slot = module_76mm_gun_2
+				front_1_custom_slot = module_asm_2
+				mid_1_custom_slot = module_torpedoes_1
+				rear_1_custom_slot = module_ciws_2
+			}
+			icon = "gfx/interface/technologies/USA/NAV/Gearing.dds"
+			obsolete = yes
+		}
+		#Allen M.Summner Class #Taiwan ship
+		create_equipment_variant = {
+			name = "Allen M.Summner Class (Taiwanese Modernization)"
+			type = destroyer_hull_1
+			name_group = USA_MODERN_DESTROYERS_NAMES
+			role_icon_index = 4
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = module_surface_jet_turbine_power
+				fixed_ship_fire_control_system_slot = module_analog_fire_control
+				fixed_ship_radar_slot = module_radar_1
+				fixed_ship_auxillary_slot_3 = module_chain_gun
+				fixed_ship_auxillary_slot_2 = module_anti_submarine_missile_1
+				fixed_ship_auxillary_slot = module_127mm_guns_1
+				fixed_ship_battery_slot = module_127mm_guns_1
+				front_1_custom_slot = module_chain_gun
+				mid_1_custom_slot = module_torpedoes_1
+				rear_1_custom_slot = module_fuel_tank
+			}
+			icon = "gfx/interface/technologies/USA/NAV/Summner.dds"
+			obsolete = yes
 		}
 		#Charles F. Adams Class #US ship
 		create_equipment_variant = {
@@ -2260,12 +2680,13 @@
 				fixed_ship_radar_slot = module_radar_1
 				fixed_ship_auxillary_slot_3 = module_aa_missiles_1
 				fixed_ship_auxillary_slot_2 = module_anti_submarine_missile_1
-				fixed_ship_auxillary_slot = module_76mm_gun_1
-				fixed_ship_battery_slot = module_76mm_gun_1
+				fixed_ship_auxillary_slot = module_127mm_guns_1
+				fixed_ship_battery_slot = module_127mm_guns_1
 				front_1_custom_slot = module_asm_1
 				mid_1_custom_slot = module_torpedoes_1
 				rear_1_custom_slot = module_fuel_tank
 			}
+			icon = "gfx/interface/technologies/USA/NAV/oldDDG1.dds"
 			obsolete = yes
 		}
 		#Spruance Class
@@ -2288,6 +2709,7 @@
 				mid_2_custom_slot = module_ciws_2
 				rear_1_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/DDG1.dds"
 			obsolete = yes
 			design_team = mio:USA_ingalls_shipbuilding_naval_manufacturer
 		}
@@ -2311,6 +2733,7 @@
 				mid_2_custom_slot = module_ciws_2
 				rear_1_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/DDG1.dds"
 			obsolete = yes
 			design_team = mio:USA_ingalls_shipbuilding_naval_manufacturer
 		}
@@ -2334,6 +2757,7 @@
 				mid_2_custom_slot = module_ciws_3
 				rear_1_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/DDG4.dds"
 			obsolete = yes
 			design_team = mio:USA_bath_iron_works_naval_manufacturer
 		}
@@ -2357,6 +2781,7 @@
 				mid_2_custom_slot = module_ciws_3
 				rear_1_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/DDG4.dds"
 			obsolete = yes
 			design_team = mio:USA_bath_iron_works_naval_manufacturer
 		}
@@ -2380,7 +2805,26 @@
 				mid_2_custom_slot = module_ciws_3
 				rear_1_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/DDG4.dds"
 			design_team = mio:USA_bath_iron_works_naval_manufacturer
+		}
+		#Garcia Class https://en.wikipedia.org/wiki/Garcia-class_frigate
+		create_equipment_variant = {
+			name = "Garcia Class"
+			type = frigate_hull_1
+			name_group = USA_MODERN_FRIGATE_NAMES
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = module_light_surface_jet_turbine_power
+				fixed_ship_fire_control_system_slot = module_analog_fire_control
+				fixed_ship_radar_slot = module_sonar_1
+				fixed_ship_auxillary_slot_2 = module_anti_submarine_missile_1
+				fixed_ship_auxillary_slot_1 = module_torpedoes_1
+				fixed_ship_auxillary_slot = module_torpedoes_1
+				fixed_ship_battery_slot = module_76mm_gun_1
+				front_1_custom_slot = module_torpedoes_1
+				rear_1_custom_slot = module_light_helipad_1
+			}
 		}
 		#Knox Class		#taiwan use this variant
 		create_equipment_variant = {
@@ -2420,6 +2864,7 @@
 				front_1_custom_slot = module_chain_gun
 				rear_1_custom_slot = empty
 			}
+			icon = "gfx/interface/technologies/USA/NAV/F1_Del_Pilar.dds"
 			obsolete = yes
 		}
 		create_equipment_variant = {
@@ -2439,6 +2884,7 @@
 				front_1_custom_slot = module_chain_gun
 				rear_1_custom_slot = empty
 			}
+			icon = "gfx/interface/technologies/USA/NAV/F1_Datu_Kalantiaw.dds"
 			obsolete = yes
 		}
 		#Hamilton Class
@@ -2459,6 +2905,7 @@
 				front_1_custom_slot = module_chain_gun
 				rear_1_custom_slot = module_light_helipad_1
 			}
+			icon = "gfx/interface/technologies/USA/NAV/F1_Hamilton.dds"
 			obsolete = yes
 		}
 		#Oliver Hazard Perry Class
@@ -2497,6 +2944,7 @@
 				front_1_custom_slot = module_anti_submarine_mortar
 				rear_1_custom_slot = module_anti_submarine_mortar
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CRV1_Claud_Johnes.dds"
 			obsolete = yes
 		}
 
@@ -2515,6 +2963,7 @@
 				front_1_custom_slot = module_chain_gun
 				rear_1_custom_slot = module_chain_gun
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CRV2_Avenger.dds"
 		}
 		#Badr Class https://en.wikipedia.org/wiki/Badr-class_corvette
 		create_equipment_variant = {
@@ -2549,6 +2998,7 @@
 				front_1_custom_slot = module_chain_gun
 				rear_1_custom_slot = module_aa_missiles_2
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CRV2_Cyclone.dds"
 		}
 
 		#Ratanakosin Class https://en.wikipedia.org/wiki/Badr-class_corvette
@@ -2566,6 +3016,25 @@
 				front_1_custom_slot = module_chain_gun
 				rear_1_custom_slot = module_chain_gun
 			}
+			icon = "gfx/interface/technologies/USA/NAV/CRV3_Ratanakosin.dds"
+			obsolete = yes
+		}
+		create_equipment_variant = {
+			name = "Hai Shih Class" #GUPPY version subs
+			type = attack_submarine_hull_1
+			#name_group = AMERICA
+			role_icon_index = 15
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = module_sub_diesel_electric_power
+				fixed_ship_radar_slot = module_sonar_1
+				fixed_ship_auxillary_slot_3 = empty
+				fixed_ship_auxillary_slot_2 = module_torpedoes_1
+				fixed_ship_auxillary_slot_1 = empty
+				fixed_ship_auxillary_slot = empty
+				fixed_ship_battery_slot = empty
+			}
+			icon = "gfx/interface/technologies/USA/NAV/Guppy.dds"
 			obsolete = yes
 		}
 		#Sturgeon Class
@@ -2602,6 +3071,7 @@
 				fixed_ship_auxillary_slot = module_minelaying
 				fixed_ship_battery_slot = module_anti_ship_torpedoes_2
 			}
+			icon = "gfx/interface/technologies/USA/NAV/SSN2.dds"
 			model = "USA_attack_submarine_2_entity"
 			design_team = mio:USA_general_dynamics_electric_boat_naval_manufacturer
 			obsolete = yes
@@ -2622,6 +3092,7 @@
 				fixed_ship_auxillary_slot = module_vls_sub_asm_1
 				fixed_ship_battery_slot = module_anti_ship_torpedoes_2
 			}
+			icon = "gfx/interface/technologies/USA/NAV/SSN2.dds"
 			model = "USA_attack_submarine_2_entity"
 			design_team = mio:USA_northrop_grumman_newport_news_naval_manufacturer
 			obsolete = yes
@@ -2642,6 +3113,7 @@
 				fixed_ship_auxillary_slot = module_vls_sub_asm_2
 				fixed_ship_battery_slot = module_anti_ship_torpedoes_2
 			}
+			icon = "gfx/interface/technologies/USA/NAV/SSN2.dds"
 			model = "USA_attack_submarine_2_entity"
 			design_team = mio:USA_general_dynamics_electric_boat_naval_manufacturer
 			obsolete = yes
@@ -2663,7 +3135,7 @@
 				fixed_ship_battery_slot = module_anti_ship_torpedoes_2
 			}
 			model = "USA_attack_submarine_3_entity"
-			icon = "gfx/interface/technologies/USA/NAV/SSN4.dds"
+			icon = "gfx/interface/technologies/USA/NAV/SSN3.dds"
 			design_team = mio:USA_general_dynamics_electric_boat_naval_manufacturer
 		}
 		#George Washington Class
@@ -2738,10 +3210,13 @@
 				fixed_ship_auxillary_slot = module_vls_sub_asm_3
 				fixed_ship_battery_slot = module_anti_ship_torpedoes_3
 			}
-			icon = "gfx/interface/technologies/USA/NAV/SSN5.dds"
+			icon = "gfx/interface/technologies/USA/NAV/SSN4.dds"
 			model = "USA_attack_submarine_4_entity"
 			design_team = mio:USA_general_dynamics_electric_boat_naval_manufacturer
 		}
+
+		complete_special_project = sp:sp_naval_vessel_project
+		complete_special_project = sp:sp_medium_naval_nuclear_engines
 
 		else = {
 			set_technology = {
@@ -2902,11 +3377,8 @@
 	}
 
 	# Air Technology
-
-	if = {
-		limit = { has_dlc = "By Blood Alone" }
-
-			set_technology = {
+	if = { limit = { has_dlc = "By Blood Alone" }
+		set_technology = {
 				early_airframe_designs = 1
 				gen_3_light = 1
 				gen_4_light = 1
@@ -2967,23 +3439,6 @@
 
 			####Foreign Variants####
 
-			create_equipment_variant = { #Med Fighter
-				name = "F-15I Ra am"
-				type = medium_plane_airframe_2
-				parent_version = 0
-				modules = {
-					fixed_main_weapon_slot = weap_mp_med_hardpoint_2
-					fixed_gun_slot = weap_multi_gun_2
-					engine_type_slot = engine_jet_double_3
-					avionics_type_slot = avionics_manned_3
-					wingform_type_slot = wing_delta
-					special_slot_type_1 = spec_countermeasures_2
-					special_slot_type_2 = spec_tgp_2
-					fixed_auxiliary_weapon_slot_1 = weap_a2a_hardpoint_2
-				}
-				obsolete = yes
-				design_team = mio:USA_boeing_aircraft_manufacturer
-			}
 			create_equipment_variant = { #Med Fighter
 				name = "F-15S Eagle"
 				type = medium_plane_airframe_2
@@ -3232,7 +3687,6 @@
 				obsolete = yes
 				icon = "gfx/interface/technologies/USA/AIR/F4E.dds"
 				model = "USA_medium_plane_airframe_1_entity"
-
 			}
 			create_equipment_variant = { #Med Fighter
 				name = "F-15C Eagle"
@@ -3252,9 +3706,34 @@
 				}
 				upgrades = {
 					plane_bba_radar_upgrade = 2
+					plane_bba_engine_upgrade = 2
 				}
 				obsolete = yes
 				icon = "gfx/interface/technologies/USA/AIR/AS3.dds"
+				model = "USA_medium_plane_fighter_airframe_2_entity"
+				design_team = mio:USA_boeing_aircraft_manufacturer
+			}
+			create_equipment_variant = { #Med Fighter
+				name = "F-15A Eagle"
+				type = medium_plane_fighter_airframe_2
+				parent_version = 1
+				modules = {
+					fixed_main_weapon_slot = weap_a2a_hardpoint_1
+					fixed_gun_slot = weap_multi_gun_2
+					engine_type_slot = engine_jet_double_2
+					avionics_type_slot = avionics_manned_2
+					wingform_type_slot = wing_delta
+					special_slot_type_1 = spec_countermeasures_2
+					special_slot_type_2 = spec_refuel_3
+					special_slot_type_3 = spec_redundant_2
+					fixed_auxiliary_weapon_slot_1 = weap_a2a_hardpoint_1
+					fixed_auxiliary_weapon_slot_2 = weap_mp_light_hardpoint_2
+				}
+				upgrades = {
+					plane_bba_radar_upgrade = 1
+				}
+				obsolete = yes
+				icon = "gfx/interface/technologies/USA/AIR/AS2.dds"
 				model = "USA_medium_plane_fighter_airframe_2_entity"
 				design_team = mio:USA_boeing_aircraft_manufacturer
 			}
@@ -3272,7 +3751,7 @@
 					special_slot_type_1 = spec_countermeasures_2
 					special_slot_type_2 = spec_tgp_2
 					special_slot_type_3 = spec_refuel_3
-					fixed_auxiliary_weapon_slot_1 = weap_ag_cas_hardpoint_3
+					fixed_auxiliary_weapon_slot_1 = weap_ag_cas_hardpoint_2
 					fixed_auxiliary_weapon_slot_2 = weap_a2a_hardpoint_2
 				}
 				upgrades = {
@@ -3312,7 +3791,7 @@
 					avionics_type_slot = avionics_manned_3
 					wingform_type_slot = wing_swept
 					special_slot_type_2 = spec_stealthshape_1
-					special_slot_type_3 = spec_tgp_1
+					special_slot_type_3 = spec_tgp_2
 					fixed_auxiliary_weapon_slot_1 = weap_int_ag_cas_hardpoint_2
 				}
 				obsolete = yes
@@ -3337,7 +3816,7 @@
 					fixed_auxiliary_weapon_slot_1 = weap_mp_med_hardpoint_1
 				}
 				obsolete = yes
-				icon = "gfx/interface/technologies/GRE/AIR/A8GR.dds"
+				icon = "gfx/interface/technologies/USA/AIR/A7.dds"
 			}
 
 			create_equipment_variant = { #Med Bomber
@@ -3407,22 +3886,6 @@
 				obsolete = yes
 				icon = "gfx/interface/technologies/USA/AIR/T1.dds"
 			}
-
-			create_equipment_variant = {
-				name = "T-38C Talon"
-				type = small_plane_strike_airframe_1
-				parent_version = 0
-				modules = {
-					fixed_main_weapon_slot = weap_mp_med_hardpoint_2
-					fixed_gun_slot = empty
-					engine_type_slot = engine_light_double_2
-					avionics_type_slot = avionics_manned_2
-					wingform_type_slot = wing_swept
-					special_slot_type_2 = spec_recon_1
-				}
-				obsolete = yes
-				icon = "gfx/interface/technologies/USA/AIR/T2.dds"
-			}
 			create_equipment_variant = { #Light Fighter
 				name = "F-104 Starfighter"
 				type = small_plane_strike_airframe_1
@@ -3465,7 +3928,8 @@
 					special_slot_type_1 = spec_countermeasures_1
 				}
 				obsolete = yes
-				icon = "gfx/interface/technologies/USA/AIR/AS1.dds"
+				icon = "gfx/interface/technologies/KOR/AIR/KF5E.dds"
+				model = "USA_small_plane_airframe_1_entity"
 			}
 			create_equipment_variant = { #Light Fighter
 				name = "F-5E Tiger II"
@@ -3480,7 +3944,8 @@
 					special_slot_type_1 = spec_countermeasures_1
 				}
 				obsolete = yes
-				icon = "gfx/interface/technologies/USA/AIR/T3.dds"
+				icon = "gfx/interface/technologies/KOR/AIR/KF5E.dds"
+				model = "USA_small_plane_airframe_1_entity"
 			}
 			create_equipment_variant = { #Light Fighter
 				name = "F-16A Blk 20"
@@ -3588,22 +4053,22 @@
 					special_slot_type_1 = spec_countermeasures_1
 				}
 				obsolete = yes
-								icon = "gfx/interface/technologies/USA/AIR/T1.dds"
+				icon = "gfx/interface/technologies/USA/AIR/T1.dds"
 			}
 			create_equipment_variant = { #Light Atk/trainer
 				name = "A-4 Skyhawk"
 				type = cv_small_plane_strike_airframe_1
 				parent_version = 0
 				modules = {
-					fixed_main_weapon_slot = weap_mp_med_hardpoint_1
-					fixed_gun_slot = weap_multi_gun_2
-					engine_type_slot = engine_light_single_1
-					avionics_type_slot = avionics_manned_1
+					fixed_main_weapon_slot = weap_mp_light_hardpoint_1
+					fixed_gun_slot = weap_multi_gun_1
+					engine_type_slot = engine_light_single_2
+					avionics_type_slot = avionics_manned_2
 					wingform_type_slot = wing_delta
-					special_slot_type_1 = spec_countermeasures_1
+					special_slot_type_1 = spec_countermeasures_2
 				}
 				obsolete = yes
-				icon = "gfx/interface/technologies/ISR/AIR/CAS1.dds"
+				icon = "gfx/interface/technologies/USA/AIR/skyhawk.dds"
 			}
 
 
@@ -3776,7 +4241,7 @@
 					special_slot_type_3 = spec_refuel_3
 					special_slot_type_4 = spec_stealthmats_1
 					fixed_auxiliary_weapon_slot_1 = weap_int_ag_strat_2
-					fixed_auxiliary_weapon_slot_2 = weap_ag_cas_hardpoint_3
+					fixed_auxiliary_weapon_slot_2 = weap_ag_cas_hardpoint_2
 				}
 				icon = "gfx/interface/technologies/USA/AIR/B4.dds"
 				design_team = mio:USA_northrop_grumman_aircraft_manufacturer
@@ -3796,7 +4261,7 @@
 					special_slot_type_2 = spec_stealthmats_1
 					special_slot_type_3 = spec_refuel_3
 					fixed_auxiliary_weapon_slot_1 = weap_int_ag_strat_2
-					fixed_auxiliary_weapon_slot_2 = weap_ag_cas_hardpoint_3
+					fixed_auxiliary_weapon_slot_2 = weap_ag_cas_hardpoint_2
 				}
 				obsolete = yes
 				icon = "gfx/interface/technologies/USA/AIR/B3.dds"
@@ -3817,7 +4282,7 @@
 					special_slot_type_2 = spec_refuel_1
 					special_slot_type_3 = spec_refuel_3
 					fixed_auxiliary_weapon_slot_1 = weap_ag_strat_2
-					fixed_auxiliary_weapon_slot_2 = weap_ag_cas_hardpoint_3
+					fixed_auxiliary_weapon_slot_2 = weap_ag_cas_hardpoint_2
 				}
 				obsolete = yes
 				icon = "gfx/interface/technologies/USA/AIR/B1.dds"
@@ -3970,6 +4435,10 @@
 				design_team = mio:USA_boeing_aircraft_manufacturer
 			}
 
+			complete_special_project = sp:sp_aircraft_project
+			complete_special_project = sp:sp_stealth_technology
+			#complete_special_project = sp:sp_5thgen_airframe
+
 
 			## End BBA Designs ##
 
@@ -4049,50 +4518,6 @@
 
 		}
 	}
-	create_equipment_variant = {
-		name = "CH-46D"
-		type = transport_helicopter1 #CH-46D
-		upgrades = {
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "MH-53-J"
-		type = transport_helicopter1 #MH-53-J
-		upgrades = {
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Boeing CH-47 Chinook"
-		type = transport_helicopter1
-		upgrades = {
-		}
-		obsolete = yes
-	}
-
-	create_equipment_variant = {
-		name = "AH-1Z Viper"
-		type = attack_helicopter4 #AH-1Z Viper
-		parent_version = 0
-		upgrades = {
-			plane_cas_upgrade = 1
-			plane_range_upgrade = 0
-			plane_engine_upgrade = 1
-			plane_reliability_upgrade = 2
-		}
-	}
-
-	create_equipment_variant = {
-		name = "AH-1W Super Cobra"
-		type = attack_helicopter2 #AH-1W Super Cobra
-		upgrades = {
-			plane_cas_upgrade = 0
-			plane_range_upgrade = 0
-			plane_engine_upgrade = 0
-			plane_reliability_upgrade = 1
-		}
-	}
 
 	# Internal Faction Opinion
 	set_variable = { var = wall_street_opinion value = 70 }
@@ -4108,6 +4533,9 @@
 		set_variable = { productivity_state_var = 1212 }
 	}
 	set_variable = { overall_productivity = 1212 }
+
+	set_variable = { enrichment_facilities = 1 }
+	add_to_array = { global.enrichment_countries = THIS.id }
 
 	# Investment Targets
 	add_to_array = { USA.investment_targets = JAP } # Japan
@@ -4419,7 +4847,7 @@
 	create_country_leader = {
 		name = "Bill Clinton"
 		picture = "bill_clinton.dds"
-		expire = "2000.5.2"
+		expire = "1996.1.1"
 		ideology = liberalism
 		traits = {
 			western_liberalism
@@ -4430,13 +4858,45 @@
 	set_variable = { term_limit = 2 }
 	set_variable = { current_term = 2 }
 
+	### Field Marshals
 	recruit_character = USA_mark_milley
 	recruit_character = USA_tommy_franks
+	recruit_character = USA_Bantz_J_Craddock
+	recruit_character = USA_John_P_Abizaid
+	recruit_character = USA_James_L_Jones_Jr
+	recruit_character = USA_Jose_J_Reyes
+	recruit_character = USA_Eric_K_Shinseki
+	recruit_character = USA_John_M_Keane
+	recruit_character = USA_Vincent_K_Brooks
+	recruit_character = USA_Billy_K_Soloman
+	recruit_character = USA_James_C_King
+	recruit_character = USA_Gregory_B_Gardner
+
+	### Generals
 	recruit_character = USA_Glenn_M_Walters
 	recruit_character = USA_Robert_Abrams
+	recruit_character = USA_joseph_dunford
+	recruit_character = USA_Leon_J_LaPorte
 	recruit_character = USA_Gary_J_Volesky
 	recruit_character = USA_Richard_Clarke
 	recruit_character = USA_Jeffrey_L_Bannister
+	recruit_character = USA_David_Petraeus
+	recruit_character = USA_William_J_Lennox_Jr
+	recruit_character = USA_Kevin_P_Byrnes
+	recruit_character = USA_John_Nicholson
+	recruit_character = USA_James_Mattis
+	recruit_character = USA_Paul_T_Mikolashek
+	recruit_character = USA_Timothy_Joseph_Maude
+	recruit_character = USA_Joseph_Keith_Kellogg_Jr
+	recruit_character = USA_James_T_Hill
+	recruit_character = USA_Henry_H_Shelton
+	recruit_character = USA_Dan_K_McNeill
+	recruit_character = USA_Joseph_M_Cosumano
+	recruit_character = USA_Victor_S_Perez
+	recruit_character = USA_Irene_M_Zoppi
+	recruit_character = USA_Emilio_Diaz_Colon
+
+	### Admirals
 	recruit_character = USA_John_Richardson
 	recruit_character = USA_William_Moran
 	recruit_character = USA_James_Caldwell
@@ -4448,24 +4908,35 @@
 	recruit_character = USA_Fred_Kacher
 	recruit_character = USA_William_Triplett
 	recruit_character = USA_Fernandez_Ponds
+	recruit_character = USA_Nils_Wirstrom
+
+	### Army Chief of Staff
 	recruit_character = USA_Robert_Neller
 	recruit_character = USA_Joseph_Votel
 	recruit_character = USA_Gen_James_E_Rainey
+
+	### Navy Chief of Staff
 	recruit_character = USA_James_Loeblein
 	recruit_character = USA_John_Alexander
 	recruit_character = USA_Joseph_Aucoin
+
+	### Air Force of Staff
 	recruit_character = USA_Ryan_Gonsalves
 	recruit_character = USA_Theodore_Martin
 	recruit_character = USA_Charles_Flynn
+
+	### High Command Advisors
+	## Army
 	recruit_character = USA_Thomas_D_Waldhauser
 	recruit_character = USA_John_Thomson
 	recruit_character = USA_Vincent_Brooks
 	recruit_character = USA_Robert_Brown
 	recruit_character = USA_Harry_Harris
-	recruit_character = USA_Kurt_Tidd
-	recruit_character = USA_James_Bynum
 	recruit_character = USA_Curtis_Scaparrotti
-	recruit_character = USA_Nils_Wirstrom
+	## Air Force
+	recruit_character = USA_Kurt_Tidd
+	## Navy
+	recruit_character = USA_James_Bynum
 
 
 	# La Resistance Spies
@@ -4690,6 +5161,8 @@
 		lte = 1
 
 		construction1 = 1
+		stronghold_building_1 = 1
+		land_fort_building_1 = 1
 		construction2 = 1
 		excavation1 = 1
 		excavation2 = 1
@@ -4722,7 +5195,7 @@
 			cruiser_hull_1 = 1
 			cruiser_hull_2 = 1
 
-			tech_battleship_hull_1 = 1
+			battleship_hull_1 = 1
 
 			helicopter_operator_hull_1 = 1
 			helicopter_operator_hull_2 = 1
@@ -4787,7 +5260,6 @@
 			tech_point_defense_system_3 = 1
 			tech_point_defense_system_4 = 1
 
-			tech_missile_systems = 1
 			tech_turret_missiles_surface = 1
 			tech_turret_missiles_surface_1 = 1
 			tech_turret_missiles_surface_2 = 1
@@ -5055,11 +5527,6 @@
 		}
 	}
 
-	recruit_character = USA_joseph_dunford
-	recruit_character = USA_David_Petraeus
-	recruit_character = USA_John_Nicholson
-	recruit_character = USA_James_Mattis
-
 	# American Vehicle Variants - 2017
 	create_equipment_variant = {
 		name = "RG-33"
@@ -5186,7 +5653,12 @@
 		upgrades = { }
 		obsolete = yes
 	}
-
+		create_equipment_variant = {
+		name = "Bell UH-1 Iroquois"
+		type = transport_helicopter1
+		upgrades = { }
+		obsolete = yes
+	}
 	create_equipment_variant = {
 		name = "Bell 214"
 		type = transport_helicopter1

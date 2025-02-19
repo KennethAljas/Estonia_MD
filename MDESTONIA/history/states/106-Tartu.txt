@@ -26,7 +26,7 @@ state = {
 	}
 
 	provinces = {
-		6408 9221 9485 11057 308 9079
+		2895 6408 9221 9485 11057 308 9079
 	}
 	manpower = 838887
 	buildings_max_level_factor = 1.000
