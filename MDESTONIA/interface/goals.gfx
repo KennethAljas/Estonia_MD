@@ -1,5 +1,9 @@
 spriteTypes = {
 	spriteType = {
+		name = "finnicUnion"
+		texturefile = "gfx/interface/goals/finnicUnion.dds"
+	}
+	spriteType = {
 		name = "nordicUnion"
 		texturefile = "gfx/interface/goals/nordicUnion.dds"
 	}

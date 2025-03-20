@@ -3215,7 +3215,8 @@
  INDOCHI_AUTH_SS_fascism_DEF: "the Indochina"
   # Baltic Union
  EST_baltic_union: "Baltic Union"
-
+ # Finnic Union
+ EST_finnic: "Finnic Union"
  # Nordic Union
  EST_nordic_union: "Nordic Union"
  # Greater Estonia

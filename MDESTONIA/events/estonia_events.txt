@@ -33,3 +33,34 @@ country_event = {
         }
     }
 }
+
+add_namespace = finnic
+country_event = {
+    id = finnic.finnic_union
+    title = "Estonian and Finnish Union"
+    desc = "Estonia and Finland have unified."
+    picture = GFX_evt_generic_signing_document
+
+    is_triggered_only = yes
+
+    option = {
+        name = "Embrace the new union"
+        
+        EST = {
+            annex_country = { target = FIN transfer_troops = yes }
+
+            every_unit_leader = {
+                set_nationality = EST
+            }
+
+            every_owned_state = {
+				add_core_of = EST
+			}
+            set_cosmetic_tag = EST_finnic
+        }
+		
+		SWE = {
+            add_to_faction = ROOT
+        }
+    }
+}

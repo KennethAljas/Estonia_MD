@@ -4,6 +4,12 @@ EST_nordic = {
     flag = "EST_nordic"
 }
 
+EST_finnic = {
+    color = rgb { 205 212 228 }
+    color_ui = rgb { 205 212 228 }
+    flag = "EST_nordic"
+}
+
 EST_nordic_union = {
     color = rgb { 204 0 0 }
 	color_ui = rgb { 204 0 0 }

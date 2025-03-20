@@ -41,7 +41,7 @@ focus_tree = {
 
 		cost = 5
 
-		x = -10
+		x = -9
 		y = 1
 
 		prerequisite = { focus = EST_estonias_future }
@@ -227,7 +227,7 @@ focus_tree = {
 
 		cost = 13
 
-		x = -2
+		x = -3
 		y = 1
 
 		prerequisite = { focus = EST_integrate_russians }
@@ -321,7 +321,49 @@ focus_tree = {
 		}
 	}
 	
+	focus = {
+		id = EST_finnish_estonia
+		icon = finnicUnion
+
+		cost = 10
+
+		x = 0
+		y = 1
+
+		prerequisite = { focus = EST_visit_sweden }
+		relative_position_id = EST_visit_sweden
+		mutually_exclusive = { focus = EST_becomes_nordic }
+		mutually_exclusive = { focus = EST_dreams_of_union }
+
+		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
+
+		completion_reward = {
+			add_stability = 0.05
+			set_temp_variable = { treasury_change = 20 }
+			modify_treasury_effect = yes
+			country_event = { id = finnic.finnic_union }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	
+	focus = {
+		id = EST_rightful_owner
+		icon = focus_ETH_boots_on_the_shore
+
+		cost = 5
+
+		x = 0
+		y = 1
+		
+		prerequisite = { focus = EST_finnish_estonia }
+		relative_position_id = EST_finnish_estonia
+		completion_reward = {
+			add_state_claim = 1128
+		}
+	}
 	
 	focus = {
 		id = EST_focus_military
@@ -489,13 +531,13 @@ focus_tree = {
 
 		cost = 12
 
-		x = 1
+		x = 2
 		y = 3
 
 		prerequisite = { focus = EST_study_russian_tactics_v2 }
-		prerequisite = { focus = EST_integrate_russians }
 		prerequisite = { focus = EST_visit_sweden }
 		mutually_exclusive = { focus = EST_dreams_of_union }
+		mutually_exclusive = { focus = EST_finnish_estonia }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		relative_position_id = EST_integrate_russians
 
@@ -532,6 +574,7 @@ focus_tree = {
 		prerequisite = { focus = EST_study_russian_tactics_v2 }
 		prerequisite = { focus = EST_integrate_russians }
 		mutually_exclusive = { focus = EST_becomes_nordic }
+		mutually_exclusive = { focus = EST_finnish_estonia }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		relative_position_id = EST_integrate_russians
 
@@ -624,7 +667,7 @@ focus_tree = {
 		y = 2
 
 		prerequisite = {  focus = EST_viribus_unitis }
-		prerequisite = {  focus = EST_european_federation focus = EST_dreams_of_union focus = EST_nordic_faction }
+		prerequisite = {  focus = EST_european_federation focus = EST_dreams_of_union focus = EST_nordic_faction focus = EST_rightful_owner }
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		relative_position_id = EST_viribus_unitis
 
