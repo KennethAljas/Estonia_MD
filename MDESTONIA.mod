@@ -1,4 +1,4 @@
-version="1.15.4"
+version="1.16.2"
 tags={
 	"National Focuses"
 }
@@ -6,6 +6,6 @@ name="MD Estonia"
 dependencies={
 	"Millennium Dawn: A Modern Day Mod"
 }
-supported_version="1.15.4"
+supported_version="1.16.2"
 path="C:/Users/kenne/Documents/Paradox Interactive/Hearts of Iron IV/mod/MDESTONIA"
 remote_file_id="3344878374"
