@@ -2,7 +2,7 @@ state = {
 	id = 106
 	name = "STATE_106"
 	resources = {
-		oil = 12
+		oil = 15
 	}
 
 	history = {
@@ -11,9 +11,10 @@ state = {
 			9221 1
 		}
 		buildings = {
-			infrastructure = 2
-			internet_station = 2
-
+			infrastructure = 3
+			internet_station = 3
+			arms_factory = 1
+			industrial_complex = 1
 		}
 		add_core_of = EST
 		2017.1.1 = {
@@ -28,7 +29,7 @@ state = {
 	provinces = {
 		2895 6408 9221 9485 11057 308 9079
 	}
-	manpower = 838887
+	manpower = 968887
 	buildings_max_level_factor = 1.000
-	state_category = state_02
+	state_category = state_03
 }

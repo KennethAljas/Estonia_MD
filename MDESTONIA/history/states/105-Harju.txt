@@ -2,27 +2,28 @@ state = {
 	id = 105
 	name = "STATE_105"
 	resources = {
-		aluminium = 2
-		tungsten = 4
-		steel = 6
-		chromium = 2
-		oil = 11
+		rubber = 4
+		aluminium = 7
+		tungsten = 8
+		steel = 10
+		chromium = 6
+		oil = 20
 	}
 
 	history = {
 		owner = EST
 		victory_points = {
-			3152 5
+			3152 10
 		}
 		buildings = {
-			infrastructure = 4
+			infrastructure = 5
 			internet_station = 2
 			industrial_complex = 3
 			offices = 1
 			arms_factory = 2
-			air_base = 4
+			air_base = 5
 			3152 = {
-				naval_base = 3
+				naval_base = 5
 			}
 			4640 = {
 				naval_base = 1
@@ -43,7 +44,7 @@ state = {
 	provinces = {
 		3152 4640 11426 14526
 	}
-	manpower = 1639710
+	manpower = 1789710
 	buildings_max_level_factor = 1.000
-	state_category = state_03
+	state_category = state_04
 }

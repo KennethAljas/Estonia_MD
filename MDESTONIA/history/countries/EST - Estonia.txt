@@ -82,11 +82,11 @@
 	set_variable = { small_medium_business_owners = 75 }
 	set_variable = { landowners_opinion = 65 }
 
-	set_variable = { var = debt value = 0.329 }
-	set_variable = { var = treasury value = 21.45 }
-	set_variable = { var = corporate_tax_rate value = 20 }
-	set_variable = { var = population_tax_rate value = 20 }
-	set_variable = { var = int_investments value = 37 }
+	set_variable = { var = debt value = 0.429 }
+	set_variable = { var = treasury value = 26.45 }
+	set_variable = { var = corporate_tax_rate value = 22 }
+	set_variable = { var = population_tax_rate value = 22 }
+	set_variable = { var = int_investments value = 41 }
 
 	add_opinion_modifier = { target = LIT modifier = large_commercial_relations }
 	reverse_add_opinion_modifier = { target = LIT modifier = large_commercial_relations }
@@ -331,9 +331,9 @@
 	set_variable = { current_term = 2 }
 
 	every_controlled_state = {
-		set_variable = { productivity_state_var = 850 }
+		set_variable = { productivity_state_var = 910 }
 	}
-	set_variable = { overall_productivity = 850 }
+	set_variable = { overall_productivity = 910 }
 
 	recruit_character = EST_johannes_kert
 	recruit_character = EST_tarmo_kouts

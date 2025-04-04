@@ -1,6 +1,10 @@
 state = {
 	id = 1012
 	name = "STATE_1012"
+	resources = {
+		steel = 3
+		oil = 2
+	}
 
 	history = {
 		owner = EST
@@ -8,8 +12,9 @@ state = {
 			185 1
 		}
 		buildings = {
-			infrastructure = 2
-			internet_station = 2
+			infrastructure = 3
+			internet_station = 3
+			dockyard = 1
 		}
 		add_core_of = EST
 		2017.1.1 = {
@@ -23,7 +28,7 @@ state = {
 	provinces = {
 		6201 185
 	}
-	manpower = 88239
+	manpower = 95739
 	buildings_max_level_factor = 1.000
 	state_category = state_01
 }
