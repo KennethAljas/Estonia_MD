@@ -24,36 +24,16 @@ bookmarks = {
 			}
 		}
 		
-		#Bolivia
-		"BOL" = {
-			history = "BOL_MILLENNIUM_DAWN_DESC"
+		"LAT" = {
+			history = "LAT_MILLENNIUM_DAWN_DESC"
 			ideology = democratic
-			ideas = {
-				BOL_ethnic_divides
-				BOL_cochabamba_crisis
-				BOL_inefficient_economic_model
-			}
-			focuses = {
-				BOL_military_junta
-				BOL_expanding_our_economic_potential
-				BOL_light_of_the_wiphala
-			}
 		}
-		#Netherlands
-		"HOL" = {
-			history = "HOL_MILLENNIUM_DAWN_DESC"
+		
+		"LIT" = {
+			history = "LIT_MILLENNIUM_DAWN_DESC"
 			ideology = democratic
-			ideas = {
-				HOL_Economic_Landscape_Start
-				HOL_beatrix
-				HOL_polder_model1
-			}
-			focuses = {
-				HOL_Rijksregiebureau_Maritieme_Industrie
-				HOL_Nederland_Maritiem_Land
-				HOL_Food_Valley
-			}
 		}
+		
 		#Iran
 		"PER" = {
 			history = "PER_MILLENNIUM_DAWN_DESC"
