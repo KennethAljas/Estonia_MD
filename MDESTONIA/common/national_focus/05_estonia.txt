@@ -331,6 +331,7 @@ focus_tree = {
 		y = 1
 
 		prerequisite = { focus = EST_visit_sweden }
+		prerequisite = { focus = EST_study_russian_tactics22_v2 }
 		relative_position_id = EST_visit_sweden
 		mutually_exclusive = { focus = EST_becomes_nordic }
 		mutually_exclusive = { focus = EST_dreams_of_union2 }
@@ -940,6 +941,13 @@ focus_tree = {
 				add_equipment_to_stockpile = {
 					type = train_equipment
 					amount = 20
+				}
+				random_owned_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
 				}
 			}
 			add_war_support = 0.1

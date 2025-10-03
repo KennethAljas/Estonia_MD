@@ -187,6 +187,10 @@
 			big_autocannon_tech = 1
 			assault_gun_tech = 1
 			nsb_artillery_0 = 1
+			Early_APC = 1
+			APC_1 = 1
+			MBT_1 = 1
+			mbt_tech_ops = 1
 		}
 
 		else = {
