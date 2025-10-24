@@ -1,0 +1,34 @@
+
+state = {
+	id = 1044
+	name = "STATE_1044"
+	resources = {
+		rubber = 1
+		aluminium = 12
+		steel = 5
+		chromium = 3
+		oil = 5
+	}
+
+	history = {
+		owner = LIT
+		victory_points = {
+			6281 1
+		}
+		buildings = {
+			infrastructure = 3
+			internet_station = 2
+			industrial_complex = 1
+		}
+		add_core_of = LIT
+		
+
+	}
+
+	provinces = {
+		6281 6407 11312
+	}
+	manpower = 485372
+	buildings_max_level_factor = 1.000
+	state_category = state_02
+}
