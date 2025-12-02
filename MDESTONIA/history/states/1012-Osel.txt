@@ -13,7 +13,7 @@ state = {
 		}
 		buildings = {
 			infrastructure = 3
-			internet_station = 3
+			internet_station = 2
 			dockyard = 1
 		}
 		add_core_of = EST
@@ -28,7 +28,7 @@ state = {
 	provinces = {
 		6201 185
 	}
-	manpower = 95739
+	manpower = 125739
 	buildings_max_level_factor = 1.000
 	state_category = state_01
 }
