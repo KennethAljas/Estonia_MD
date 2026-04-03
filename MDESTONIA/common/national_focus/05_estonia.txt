@@ -1389,6 +1389,8 @@ focus_tree = {
 		relative_position_id = EST_the_estonian_party2
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			set_temp_variable = { treasury_change = 10 }
+			modify_treasury_effect = yes
 			log = "[GetDateText]: [This.GetName]: EST_finnish_model executed"
 			set_temp_variable = { party_index = 21 }
 			set_temp_variable = { party_popularity_increase = 0.05 }
@@ -1856,6 +1858,7 @@ focus_tree = {
 			set_temp_variable = { influence_target = EST }
 			change_influence_percentage = yes
 			add_war_support = 0.05
+			add_manpower = 10000
 		}
 	}
 	focus = {
@@ -1876,6 +1879,7 @@ focus_tree = {
 		relative_position_id = EST_estonia_first2
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			add_manpower = 5000
 			log = "[GetDateText]: [This.GetName]: EST_finnish_model executed"
 			division_template = {
 				name = "Christian Forces"
@@ -2008,6 +2012,7 @@ focus_tree = {
 
 		will_lead_to_war_with = SWE
 		completion_reward = {
+			add_manpower = 10000
 			log = "[GetDateText]: [This.GetName]: EST_finnish_model executed"
 			EST = {
 				create_wargoal = {
@@ -2057,6 +2062,8 @@ focus_tree = {
 		relative_position_id = EST_estonia_first2
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 		completion_reward = {
+			set_temp_variable = { treasury_change = 10 }
+			modify_treasury_effect = yes
 			log = "[GetDateText]: [This.GetName]: EST_finnish_model executed"
 			set_cosmetic_tag = EST_nordic_union
 			#
@@ -2266,7 +2273,7 @@ focus_tree = {
 		icon = frigates
 
 
-		cost = 7
+		cost = 5
 
 		x = 0
 		y = 2
@@ -2277,8 +2284,10 @@ focus_tree = {
 
 
 		completion_reward = {
-			log = "[GetDateText]: [This.GetName]: focus EST_coast_guard2 executed"
-			add_ideas = EST_coast_guard2
+			one_random_dockyard = yes
+			add_manpower = 5000
+			log = "[GetDateText]: [This.GetName]: focus EST_coast_guard executed"
+			add_ideas = EST_coast_guard
 		}
 
 		ai_will_do = {
@@ -2786,10 +2795,9 @@ focus_tree = {
 		relative_position_id = EST_mobilty2
 
 		completion_reward = {
-			log = "[GetDateText]: [This.GetName]: focus EST_viribus_unitis2 executed"
 			add_war_support = 0.1
 			add_political_power = 120
-			add_ideas = EST_viribus_unitis2
+			add_manpower = 5000
 		}
 	}
 

@@ -1,4 +1,4 @@
-﻿capital = 652
+capital = 652
 
 2000.1.1 = {
 	set_cosmetic_tag = SOV
@@ -4568,7 +4568,7 @@
 	add_to_faction = KAZ
 	add_to_faction = KYR
 	add_to_faction = TAJ
-	add_to_faction = UZB
+	#add_to_faction = UZB
 
 	SOV = { add_to_tech_sharing_group = CSTO_Tech_Share }
 	ARM = { add_to_tech_sharing_group = CSTO_Tech_Share }
