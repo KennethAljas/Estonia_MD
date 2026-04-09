@@ -20,7 +20,7 @@ bookmarks = {
 			focuses = {
 				EST_becomes_nordic
 				EST_nordic_faction
-				EST_striking_the_bear
+				EST_striking_the_bear2
 			}
 		}
 		

@@ -174,8 +174,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			add_extra_state_shared_building_slots = 2
 			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -280,10 +280,10 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			add_extra_state_shared_building_slots = 2
 			set_temp_variable = { treasury_change = 25 }
 			modify_treasury_effect = yes
 			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = offices
 					level = 2
@@ -395,8 +395,8 @@ focus_tree = {
 			add_manpower = 5000
 			add_war_support = 0.05
 			army_experience = 50
-			add_extra_state_shared_building_slots = 2
 			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = arms_factory
 					level = 2
@@ -671,8 +671,18 @@ focus_tree = {
 		x = 15
 		y = 2
 
-		prerequisite = {  focus = EST_viribus_unitis2 }
-		prerequisite = {  focus = EST_european_federation2 focus = EST_dreams_of_union2 focus = EST_nordic_faction focus = EST_rightful_owner }
+		prerequisite = {
+			focus = EST_viribus_unitis2
+		}
+
+		available = {
+			OR = {
+				has_completed_focus = EST_european_federation2
+				has_completed_focus = EST_dreams_of_union2
+				has_completed_focus = EST_nordic_faction
+				has_completed_focus = EST_rightful_owner
+			}
+		}
 		search_filters = { FOCUS_FILTER_POLITICAL }
 		relative_position_id = EST_viribus_unitis2
 
@@ -903,8 +913,8 @@ focus_tree = {
 		search_filters = { FOCUS_FILTER_POLITICAL FOCUS_FILTER_STABILITY }
 
 		completion_reward = {
-			add_extra_state_shared_building_slots = 2
 			random_owned_state = {
+				add_extra_state_shared_building_slots = 2
 				add_building_construction = {
 					type = industrial_complex
 					level = 2
@@ -2253,13 +2263,6 @@ focus_tree = {
 		relative_position_id = EST_armed_forces2
 
 		completion_reward = {
-			log = "[GetDateText]: [This.GetName]: focus EST_naval_effort2 executed"
-			add_tech_bonus = {
-				name = EST_naval_effort2
-				bonus = 0.5
-				uses = 1
-				category = CAT_naval_eqp
-			}
 			one_random_dockyard = yes
 		}
 
@@ -2430,7 +2433,7 @@ focus_tree = {
 
 		completion_reward = {
 			log = "[GetDateText]: [This.GetName]: focus EST_military_status_quo2 executed"
-			add_ideas = EST_military_status_quo2
+			add_ideas = EST_military_status_quo
 			add_doctrine_cost_reduction = {
 				name = EST_estonian_defence_league2
 				cost_reduction = 0.5
@@ -2772,8 +2775,8 @@ focus_tree = {
 				bonus = 0.5
 			}
 			swap_ideas = {
-				remove_idea = EST_military_status_quo2
-				add_idea = EST_military_status_quo2_two
+				remove_idea = EST_military_status_quo
+				add_idea = EST_military_status_quo
 			}
 		}
 	}
